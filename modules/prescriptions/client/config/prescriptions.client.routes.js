@@ -16,7 +16,7 @@
       })
       .state('prescriptions.list', {
         url: '',
-        templateUrl: 'modules/prescriptions/views/list-prescriptions.client.view.html',
+        templateUrl: 'modules/prescriptions/client/views/list-prescriptions.client.view.html',
         controller: 'PrescriptionsListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('prescriptions.create', {
         url: '/create',
-        templateUrl: 'modules/prescriptions/views/form-prescription.client.view.html',
+        templateUrl: 'modules/prescriptions/client/views/form-prescription.client.view.html',
         controller: 'PrescriptionsController',
         controllerAs: 'vm',
         resolve: {
@@ -38,7 +38,7 @@
       })
       .state('prescriptions.edit', {
         url: '/:prescriptionId/edit',
-        templateUrl: 'modules/prescriptions/views/form-prescription.client.view.html',
+        templateUrl: 'modules/prescriptions/client/views/form-prescription.client.view.html',
         controller: 'PrescriptionsController',
         controllerAs: 'vm',
         resolve: {
@@ -51,7 +51,7 @@
       })
       .state('prescriptions.view', {
         url: '/:prescriptionId',
-        templateUrl: 'modules/prescriptions/views/view-prescription.client.view.html',
+        templateUrl: 'modules/prescriptions/client/views/view-prescription.client.view.html',
         controller: 'PrescriptionsController',
         controllerAs: 'vm',
         resolve: {

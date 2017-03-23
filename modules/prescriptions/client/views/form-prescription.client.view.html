@@ -12,6 +12,27 @@
             <p class="help-block error-text" ng-message="required">Prescription name is required.</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="body">Body</label>
+          <textarea name="body" type="text" ng-model="vm.prescription.body" id="body" class="form-control" placeholder="Body" required></textarea>
+          <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Prescription body is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <textarea name="tags" type="text" ng-model="vm.prescription.tags" id="tags" class="form-control" placeholder="Tags" required></textarea>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="category">Category</label>
+          <select name="category" type="text" ng-model="vm.prescription.category" id="category" class="form-control"  required>
+            <option value="">----Please Select----</option>
+            <option value="Business">Business</option>
+            <option value="Health">Health</option>
+            <option value="Technology">Technology</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.prescription._id ? 'Update' : 'Create'}}</button>
         </div>
