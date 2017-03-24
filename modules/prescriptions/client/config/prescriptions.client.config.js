@@ -30,16 +30,16 @@
       roles: ['user']
     });
     */
-      menuService.addMenuItem('topbar', {
-          title: 'Latest Prescriptions',
-          state: 'prescriptions.list',
-          roles: ['*']
-      });
+    menuService.addMenuItem('topbar', {
+      title: 'Latest Prescriptions',
+      state: 'prescriptions.list',
+      roles: ['*']
+    });
 
-      menuService.addMenuItem('topbar', {
-          title: 'Create Prescriptions',
-          state: 'prescriptions.create',
-          roles: ['user']
-      });
+    menuService.addMenuItem('topbar', {
+      title: 'Create Prescriptions',
+      state: 'prescriptions.create',
+      roles: ['user']
+    });
   }
 }());
