@@ -1,6 +1,9 @@
 <section>
   <div class="page-header">
-    <h1 ng-bind="vm.prescription.name"></h1>
+    <h1><span ng-bind="vm.prescription.name"></span> <small>Posted in <span ng-bind="vm.prescription.category"></span></small></h1>
+    <div ng-bind="vm.prescription.body"></div>
+    <br>
+    <p>Tags : <strong>{{vm.prescription.tags}}</strong></p>
   </div>
   <div class="pull-right"
        ng-show="vm.prescription.isCurrentUserOwner">
