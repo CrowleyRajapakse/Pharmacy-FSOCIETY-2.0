@@ -14,7 +14,7 @@
         <span ng-if="!prescription.user">Deleted User</span>
       </small>
       <h4 class="list-group-item-heading" ng-bind="prescription.name"></h4>
-      <p>{{prescription.body | limitTo:100}}</p>
+      <p>{{prescription.body | limitTo:100}}</p><p>{{prescription.dosage}}</p>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.prescriptions.$resolved && !vm.prescriptions.length">

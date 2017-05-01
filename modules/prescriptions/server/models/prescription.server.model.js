@@ -16,6 +16,12 @@ var PrescriptionSchema = new Schema({
     required: 'Please fill Prescription name',
     trim: true
   },
+  dosage: {
+    type: String,
+    default: '',
+    required: 'Please fill Prescription dosage',
+    trim: true
+    },
   body: {
     type: String,
     default: '',

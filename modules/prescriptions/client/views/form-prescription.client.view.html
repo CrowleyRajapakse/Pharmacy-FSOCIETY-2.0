@@ -6,17 +6,24 @@
     <form name="vm.form.prescriptionForm" class="form-horizontal" ng-submit="vm.save(vm.form.prescriptionForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
+          <label class="control-label" for="name">Drug Name</label>
           <input name="name" type="text" ng-model="vm.prescription.name" id="name" class="form-control" placeholder="Name" required>
           <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Prescription name is required.</p>
+            <p class="help-block error-text" ng-message="required">Drug Prescription name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="control-label" for="body">Body</label>
+          <label class="control-label" for="dosage">Dosage</label>
+          <input name="dosage" type="text" ng-model="vm.prescription.dosage" id="dosage" class="form-control" placeholder="Dosage" required>
+          <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Drug Prescription Dosage is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="body">Frequency</label>
           <textarea name="body" type="text" ng-model="vm.prescription.body" id="body" class="form-control" placeholder="Body" required></textarea>
           <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Prescription body is required.</p>
+            <p class="help-block error-text" ng-message="required">Prescription Frequency is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
