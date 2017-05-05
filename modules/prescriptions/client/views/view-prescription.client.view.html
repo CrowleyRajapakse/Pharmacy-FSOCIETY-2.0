@@ -3,16 +3,17 @@
     <h1><span ng-bind="vm.prescription.name"></span> <small>Posted For Patient <span ng-bind="vm.prescription.patient"></span></small></h1>
    <!-- <div ng-bind="vm.prescription.frequency"></div> -->
     <br>
-    <p>Frequency : {{vm.prescription.frequency}}</p>
-    <p>Dosage : {{vm.prescription.dosage}}</p>
-    <p>Period : {{vm.prescription.period}}</p>
-    <p>Quantity : {{vm.prescription.quantity}}</p>
-    <p>Tags : <strong>{{vm.prescription.tags}}</strong></p>
+    <div id="print">
+      <p>Frequency : {{vm.prescription.frequency}}</p>
+      <p>Dosage : {{vm.prescription.dosage}}</p>
+      <p>Period : {{vm.prescription.period}}</p>
+      <p>Quantity : {{vm.prescription.quantity}}</p>
+      <p>Tags : <strong>{{vm.prescription.tags}}</strong></p>
+    </div>
   </div>
   <div class="pull-right"
        ng-show="vm.prescription.isCurrentUserOwner">
-    <a class="btn btn-primary"
-       ui-sref="prescriptions.dispense({ prescriptionId: vm.prescription._id })">
+    <a class="btn btn-primary" ng-click="vm.printDispense('print')">
       <i class="glyphicon glyphicon-ok-sign"></i>
     </a>
     <a class="btn btn-primary"
