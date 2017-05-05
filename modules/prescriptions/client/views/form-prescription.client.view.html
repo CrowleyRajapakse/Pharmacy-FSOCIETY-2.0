@@ -6,17 +6,38 @@
     <form name="vm.form.prescriptionForm" class="form-horizontal" ng-submit="vm.save(vm.form.prescriptionForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
+          <label class="control-label" for="name">Drug Name</label>
           <input name="name" type="text" ng-model="vm.prescription.name" id="name" class="form-control" placeholder="Name" required>
           <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Prescription name is required.</p>
+            <p class="help-block error-text" ng-message="required">Drug Prescription name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label class="control-label" for="body">Body</label>
-          <textarea name="body" type="text" ng-model="vm.prescription.body" id="body" class="form-control" placeholder="Body" required></textarea>
+          <label class="control-label" for="dosage">Dosage</label>
+          <input name="dosage" type="text" ng-model="vm.prescription.dosage" id="dosage" class="form-control" placeholder="Dosage" required>
           <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Prescription body is required.</p>
+            <p class="help-block error-text" ng-message="required">Drug Prescription Dosage is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="frequency">Frequency</label>
+          <textarea name="frequency" type="text" ng-model="vm.prescription.frequency" id="frequency" class="form-control" placeholder="Frequency" required></textarea>
+          <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Prescription Frequency is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="period">Period</label>
+          <textarea name="period" type="text" ng-model="vm.prescription.period" id="period" class="form-control" placeholder="Period" required></textarea>
+          <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Prescription Period is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="quantity">Quantity</label>
+          <input name="quantity" type="number" min="0" ng-model="vm.prescription.quantity" id="quantity" class="form-control" placeholder="Quantity" required>
+          <div ng-messages="vm.form.prescriptionForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Drug Prescription Quantity is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
@@ -24,13 +45,13 @@
           <textarea name="tags" type="text" ng-model="vm.prescription.tags" id="tags" class="form-control" placeholder="Tags" required></textarea>
         </div>
         <div class="form-group" show-errors>
-          <label class="control-label" for="category">Category</label>
-          <select name="category" type="text" ng-model="vm.prescription.category" id="category" class="form-control"  required>
+          <label class="control-label" for="patient">Patient</label>
+          <select name="patient" type="text" ng-model="vm.prescription.patient" id="patient" class="form-control"  required>
             <option value="">----Please Select----</option>
-            <option value="Business">Business</option>
-            <option value="Health">Health</option>
-            <option value="Technology">Technology</option>
-            <option value="Other">Other</option>
+            <option value="000001">000001</option>
+            <option value="000002">000002</option>
+            <option value="000003">000003</option>
+            <option value="000004">000004</option>
           </select>
         </div>
         <div class="form-group">

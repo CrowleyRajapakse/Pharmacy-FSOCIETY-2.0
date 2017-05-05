@@ -16,10 +16,28 @@ var PrescriptionSchema = new Schema({
     required: 'Please fill Prescription name',
     trim: true
   },
-  body: {
+  dosage: {
     type: String,
     default: '',
-    required: 'Please fill Prescription body',
+    required: 'Please fill drug dosage',
+    trim: true
+  },
+  frequency: {
+    type: String,
+    default: '',
+    required: 'Please fill drug frequency',
+    trim: true
+  },
+  period: {
+    type: String,
+    default: '',
+    required: 'Please fill drug period',
+    trim: true
+  },
+  quantity: {
+    type: Number,
+    default: '0',
+    required: 'Please fill drug quantity',
     trim: true
   },
   tags: {
@@ -27,10 +45,10 @@ var PrescriptionSchema = new Schema({
     default: '',
     trim: true
   },
-  category: {
+  patient: {
     type: String,
     default: '',
-    required: 'Please fill Prescription category',
+    required: 'Please select a Patient',
     trim: true
   },
   created: {
