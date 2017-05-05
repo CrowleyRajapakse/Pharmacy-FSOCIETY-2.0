@@ -49,6 +49,15 @@
           pageTitle: 'Edit Prescription {{ prescriptionResolve.name }}'
         }
       })
+      .state('prescriptions.dispense', {
+        url: '',
+        templateUrl: 'modules/prescriptions/client/views/list-prescriptions.client.view.html',
+        controller: 'PrescriptionsListController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Prescriptions List'
+        }
+      })
       .state('prescriptions.view', {
         url: '/:prescriptionId',
         templateUrl: 'modules/prescriptions/client/views/view-prescription.client.view.html',
