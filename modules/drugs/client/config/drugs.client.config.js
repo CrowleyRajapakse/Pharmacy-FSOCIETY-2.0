@@ -42,5 +42,11 @@
       state: 'drugs.create',
       roles: ['user']
     });
+
+    menuService.addMenuItem('topbar', {
+      title: 'Add New Drug',
+      state: 'drugs.createnew',
+      roles: ['user']
+    });
   }
 }());
