@@ -96,4 +96,4 @@ var DrugSchema = new Schema({
   }
 });
 
-mongoose.model('Drugs', DrugSchema);
+mongoose.model('Drug', DrugSchema);
