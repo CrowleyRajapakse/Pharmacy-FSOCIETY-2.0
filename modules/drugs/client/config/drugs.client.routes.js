@@ -36,6 +36,19 @@
           pageTitle: 'Drugs Create'
         }
       })
+      .state('drugs.createnew', {
+            url: '/createnew',
+            templateUrl: 'modules/drugs/client/views/form-newdrug.client.view.html',
+            controller: 'DrugsController',
+            controllerAs: 'vm',
+            resolve: {
+                drugResolve: newDrug
+            },
+            data: {
+                roles: ['user', 'admin'],
+                pageTitle: 'Drugs Create New'
+            }
+        })
       .state('drugs.edit', {
         url: '/:drugId/edit',
         templateUrl: 'modules/drugs/client/views/form-drug.client.view.html',
