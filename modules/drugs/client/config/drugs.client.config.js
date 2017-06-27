@@ -32,13 +32,13 @@
          });
          */
     menuService.addMenuItem('topbar', {
-      title: 'View Drug Information',
+      title: 'View Drugs',
       state: 'drugs.list',
       roles: ['*']
     });
 
     menuService.addMenuItem('topbar', {
-      title: 'Add New Batch',
+      title: 'Add Drugs',
       state: 'drugs.create',
       roles: ['user']
     });

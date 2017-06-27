@@ -22,6 +22,8 @@
           <select id = "roles" name="roles"class="form-control" ng-model="credentials.roles" placeholder="Role" required>
             <option value = "admin">Admin</option>
             <option value = "user">User</option>
+            <option value = "chiefPharmacist">Chief Pharmacist</option>
+            <option value = "assistantPharmacist">Assistant Pharmacist</option>
           </select>
           <div ng-messages="userForm.lastName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Type is required.</p>

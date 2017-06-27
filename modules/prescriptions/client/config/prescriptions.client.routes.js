@@ -20,6 +20,7 @@
         controller: 'PrescriptionsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Prescriptions List'
         }
       })
@@ -55,6 +56,7 @@
         controller: 'PrescriptionsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Prescriptions List'
         }
       })
@@ -67,6 +69,7 @@
           prescriptionResolve: getPrescription
         },
         data: {
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Prescription {{ prescriptionResolve.name }}'
         }
       });
