@@ -18,6 +18,13 @@ module.exports = function(app) {
     .put(drugs.update)
     .delete(drugs.delete);
 
+  //request begin
+   /* app.route('/api/drugs/requests').all(drugsPolicy.isAllowed)
+        .get(drugs.list)
+        .post(drugs.create);*/
+    //request end
+
+
   // Finish by binding the Drug middleware
   app.param('drugId', drugs.drugByID);
 };

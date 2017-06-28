@@ -1,4 +1,6 @@
 <section>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.js"></script>-->
+  <script src="/public/lib/angular/angular-filter-master/dist/angular-filter.js"></script>
   <div class="page-header">
     <h1>Drugs</h1>
   </div>
@@ -36,24 +38,32 @@
       <fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="category"> Drug Category</label>
-          <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control"  required>
+          <select name="category" type="text" ng-model="vm.drug.category" ng-change="vm.DropDownChangeHandler()" id="category" class="form-control"  required>
             <option value="">----All----</option>
-            <option value="Narcotics">Narcotics</option>
+            <option ng-repeat="drug in vm.drugs" value="{{drug.category}}">{{drug.category}}</option>
+          <!--  <option value="Narcotics">Narcotics</option>
             <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
             <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
-            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>
+            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>-->
           </select>
         </div>
 
-        <div class="form-group" show-errors>
+        <div class="form-group" show-errors >
           <label class="control-label" for="drug_name"> Drug Name</label>
           <select name="drug_name" type="text" ng-model="vm.drug.drug_name" id="drug_name" class="form-control"  required>
-            <option value="">----Select----</option>
-            <option value="Ampicllin">Ampicllin</option>
+            <!--<option value="">&#45;&#45;&#45;&#45;Select&#45;&#45;&#45;&#45;</option>
+            <option value="Ampicllin">{{drug.name}}</option>
             <option value="Ampicllin_250mg">Ampicllin 250mg</option>
             <option value="Afrin">Afrin</option>
             <option value="Losartan">Losartan</option>
-            <option value="Panadol">Panadol</option>
+            <option value="Panadol">Panadol</option>-->
+            <option ng-repeat="drug in vm.drugs"  ng-if="vm.drug.category == drug.category" value="{{drug.name}}">{{drug.name}}</option>
+
+
+
+
+
+
           </select>
         </div>
 
@@ -66,12 +76,12 @@
             <td>View</td>
             <td>Delete</td>
           </tr>
-          <tr ng-repeat="drug in vm.drugs">
+          <tr ng-repeat="drug in vm.drugs" ng-if="vm.drug.drug_name == drug.name" >
             <td>{{drug.name}}</td>
             <td>{{drug.batchNo}}</td>
             <td><button class="btn btn-primary" ui-sref="drugs.edit({ drugId:drug._id })" ng-click="">Edit</button></td>
             <td><button class="btn btn-primary" ng-click="">View</button></td>
-            <td><button class="btn btn-primary" ng-click="">Delete</button></td>
+            <td><button class="btn btn-primary" ng-click="vm.removeInArray($index)">Delete</button>{{$index}}</td>
 
 
           </tr>

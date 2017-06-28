@@ -32,15 +32,22 @@
          });
          */
     menuService.addMenuItem('topbar', {
-      title: 'View Drugs',
+      title: 'View Drug Information',
       state: 'drugs.list',
       roles: ['*']
     });
 
     menuService.addMenuItem('topbar', {
-      title: 'Add Drugs',
+      title: 'Add New Batch',
       state: 'drugs.create',
       roles: ['user']
     });
+
+    //request part
+      menuService.addMenuItem('topbar', {
+          title: 'View Requests',
+          state: 'requests.view',
+          roles: ['user']
+      });
   }
 }());

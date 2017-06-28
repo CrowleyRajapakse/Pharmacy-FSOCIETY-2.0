@@ -1,4 +1,4 @@
-// Drugs service used to communicate Prescriptions REST endpoints
+// Drugs service used to communicate Drugs REST endpoints
 (function () {
   'use strict';
 

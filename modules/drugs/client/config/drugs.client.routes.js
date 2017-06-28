@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+
   angular
     .module('drugs')
     .config(routeConfig);
@@ -60,7 +61,21 @@
               data: {
                 pageTitle: 'Drug {{ drugResolve.name }}'
               }
-            });
+            })
+//request part begin
+        .state('requests.view', {
+            url: '/requests',
+            templateUrl: 'modules/drugs/client/views/view-requests.client.view.html',
+            controller: 'DrugsController',
+            controllerAs: 'vm',
+            resolve: {
+                drugResolve: getRequest
+            },
+            data: {
+                pageTitle: 'Request {{ requestResolve.name }}'
+            }
+        });
+      //request part end
   }
 
   getDrug.$inject = ['$stateParams', 'DrugsService'];
@@ -75,4 +90,24 @@
   function newDrug(DrugsService) {
     return new DrugsService();
   }
+
+  //request begin
+
+
+
+    getRequest.$inject = ['$stateParams', 'DrugsService'];
+
+    function getRequest($stateParams, DrugsService) {
+        return DrugsService.get({
+            drugId: $stateParams.drugId
+        }).$promise;
+    }
+    newRequest.$inject = ['DrugsService'];
+
+    function newRequest(DrugsService) {
+        return new DrugsService();
+    }
+    //request end
+
+
 }());
