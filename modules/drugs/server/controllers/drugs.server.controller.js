@@ -63,6 +63,7 @@ exports.update = function(req, res) {
 /**
  * Delete an Drug
  */
+
 exports.delete = function(req, res) {
   var drug = req.drug;
 

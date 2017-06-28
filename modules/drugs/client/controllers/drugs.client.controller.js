@@ -8,22 +8,35 @@
 
   DrugsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'drugResolve'];
 
-  function DrugsController ($scope, $state, $window, Authentication, drug) {
+  function DrugsController ($scope, $state, $window, Authentication, drug, request) {
     var vm = this;
 
     vm.authentication = Authentication;
     vm.drug = drug;
+    //request begin,added request to drugcontroller
+      /*vm.request = request;*/
+      //request end
+
+
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
+
     vm.save = save;
+
+      //request begin
+      /*vm.saverequest = saverequest;*/
+      //request end
     vm.printDrug = printDrug;
     // Remove existing Drug
     function remove() {
+      console.log('called');
       if ($window.confirm('Are you sure you want to delete?')) {
         vm.drug.$remove($state.go('drugs.list'));
       }
     }
+
+
 //Print Drug and print
     function printDrug(div) {
       if ($window.confirm('Are you sure you want to Print Drug?')) {
@@ -63,5 +76,42 @@
         vm.error = res.data.message;
       }
     }
+
+      //request begin
+
+     /* function saverequest(isValid) {
+          if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'vm.form.drugForm');
+              return false;
+          }
+
+          // TODO: move create/update logic to service
+          if (vm.request._id) {
+              vm.request.$update(successCallback, errorCallback);
+          } else {
+              vm.request.$save(successCallback, errorCallback);
+          }
+
+          function successCallback(res) {
+              $state.go('requests.view', {
+                  requestId: res._id
+              });
+          }
+
+          function errorCallback(res) {
+              vm.error = res.data.message;
+          }
+      }*/
+
+      //request end
+
+
+
   }
+
+
+
+
+
+
 }());
