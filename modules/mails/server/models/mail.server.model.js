@@ -10,10 +10,22 @@ var mongoose = require('mongoose'),
  * Mail Schema
  */
 var MailSchema = new Schema({
-  name: {
+  email: {
     type: String,
     default: '',
-    required: 'Please fill Mail name',
+    required: 'Please fill senders email',
+    trim: true
+  },
+  subject: {
+    type: String,
+    default: '',
+    required: 'Please fill mail subject',
+    trim: true
+  },
+  message: {
+    type: String,
+    default: '',
+    required: 'Please fill mail message',
     trim: true
   },
   created: {

@@ -4,25 +4,96 @@
  * Module dependencies.
  */
 var path = require('path'),
+  config = require(path.resolve('./config/config')),
   mongoose = require('mongoose'),
   Mail = mongoose.model('Mail'),
+  User = mongoose.model('User'),
+  nodemailer = require('nodemailer'),
+  async = require('async'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
+var smtpTransport = nodemailer.createTransport(config.mailer.options);
 
 /**
  * Create a Mail
  */
-exports.create = function(req, res) {
+exports.create = function(req, res,next) {
   var mail = new Mail(req.body);
   mail.user = req.user;
+  async.waterfall([
+    function (done) {
+      mail.save(function(err) {
+        if (err) {
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        } else {
+          res.jsonp(mail);
+        }
+      });
+    },
+    function (user, done) {
 
-  mail.save(function(err) {
+      var httpTransport = 'http://';
+      if (config.secure && config.secure.ssl === true) {
+        httpTransport = 'https://';
+      }
+      res.render(path.resolve('modules/users/server/templates/reset-password-email'), {
+        name: user.displayName,
+        appName: config.app.title,
+        url: httpTransport + req.headers.host + '/api/auth/reset/' + "1234"
+      }, function (err, emailHTML) {
+        done(err, emailHTML, user);
+      });
+    },
+    function (emailHTML,mail, done) {
+      var mailOptions = {
+        to: mail.email,
+        from: config.mailer.from,
+        subject: mail.subject,
+        text: mail.message,
+        html: emailHTML
+      };
+      smtpTransport.sendMail(mailOptions, function (err) {
+        if (!err) {
+          res.send({
+            message: 'An email has been sent to the provided email with further instructions.'
+          });
+        } else {
+          return res.status(400).send({
+            message: 'Failure sending email'
+          });
+        }
+
+        done(err);
+      });
+    }
+  ], function (err) {
     if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+      return next(err);
+    }
+  });
+};
+
+exports.sendMail = function(req,res){
+  var mail = req.mail;
+  mail.user = req.user;
+
+  var mailOptions = {
+    to: mail.email,
+    from: config.mailer.from,
+    subject: mail.subject,
+    text: mail.message
+  };
+  smtpTransport.sendMail(mailOptions, function (err) {
+    if (!err) {
+      res.send({
+        message: 'An email has been sent to the provided email with further instructions.'
       });
     } else {
-      res.jsonp(mail);
+      return res.status(400).send({
+        message: 'Failure sending email'
+      });
     }
   });
 };

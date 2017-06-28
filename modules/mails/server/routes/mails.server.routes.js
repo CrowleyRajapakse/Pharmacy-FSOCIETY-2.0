@@ -11,6 +11,8 @@ module.exports = function(app) {
   app.route('/api/mails').all(mailsPolicy.isAllowed)
     .get(mails.list)
     .post(mails.create);
+  app.route('/api/mails/send').all(mailsPolicy.isAllowed)
+    .post(mails.sendMail);
 
   app.route('/api/mails/:mailId').all(mailsPolicy.isAllowed)
     .get(mails.read)
