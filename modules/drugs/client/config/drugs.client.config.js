@@ -43,11 +43,5 @@
       roles: ['user']
     });
 
-    //request part
-      menuService.addMenuItem('topbar', {
-          title: 'View Requests',
-          state: 'requests.view',
-          roles: ['user']
-      });
   }
 }());

@@ -62,6 +62,7 @@
                 pageTitle: 'Drug {{ drugResolve.name }}'
               }
             })
+                /*
 //request part begin
         .state('requests.view', {
             url: '/requests',
@@ -76,6 +77,7 @@
             }
         });
       //request part end
+      */
   }
 
   getDrug.$inject = ['$stateParams', 'DrugsService'];
@@ -94,6 +96,7 @@
   //request begin
 
 
+    /*
 
     getRequest.$inject = ['$stateParams', 'DrugsService'];
 
@@ -109,5 +112,5 @@
     }
     //request end
 
-
+*/
 }());
