@@ -9,52 +9,47 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Drugs Permissions
+ * Invoke Prescriptions Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/drugs',
+      resources: '/api/requests',
       permissions: '*'
     }, {
-      resources: '/api/drugs/:drugId',
+      resources: '/api/requests/:requestId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/drugs',
+      resources: '/api/requests',
       permissions: ['get', 'post']
     }, {
-        resources: '/api/drugs/create',
-        permissions: ['get', 'post']
-
-    } , {
-      resources: '/api/drugs/:drugId',
+      resources: '/api/requests/:requestId',
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['chiefPharmacist'],
     allows: [{
-      resources: '/api/drugs',
+      resources: '/api/requests',
       permissions: ['get']
     }, {
-      resources: '/api/drugs/:drugId',
+      resources: '/api/requests/:requestId',
       permissions: ['get']
     }]
   }]);
 };
 
 /**
- * Check If Drugs Policy Allows
+ * Check If Prescriptions Policy Allows
  */
-
 exports.isAllowed = function (req, res, next) {
-  var roles = (req.user) ? req.user.roles : ['guest'];
+  var roles = (req.user) ? req.user.roles : ['chiefPharmacist'];
 
-  // If an Drug is being processed and the current user created it then allow any manipulation
-  if (req.drug && req.user && req.drug.user && req.drug.user.id === req.user.id) {
+  // If an Prescription is being processed and the current user created it then allow any manipulation
+  if (req.request && req.user && req.request.user && req.request.user.id === req.user.id) {
     return next();
   }
 

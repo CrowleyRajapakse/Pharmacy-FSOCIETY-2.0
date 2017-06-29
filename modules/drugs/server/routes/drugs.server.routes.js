@@ -18,6 +18,10 @@ module.exports = function(app) {
     .put(drugs.update)
     .delete(drugs.delete);
 
+  app.route('/api/drugs/create').all(drugsPolicy.isAllowed)
+        .get(drugs.read)
+        .put(drugs.update)
+        .delete(drugs.delete);
   //request begin
    /* app.route('/api/drugs/requests').all(drugsPolicy.isAllowed)
         .get(drugs.list)

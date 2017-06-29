@@ -1,0 +1,42 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm1.request._id ? 'Edit Request' : 'New Request'}}</h1>
+    <h1>DrugName:{{vm1.requests.drugName}}</h1>
+
+    <h1></h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.requestForm" class="form-horizontal" ng-submit="" novalidate>
+
+
+
+      <div class="form-group">
+        <table class="table table-striped">
+          <tr >
+            <td>Request ID</td>
+            <td>Drug ID</td>
+            <td>Drug Name</td>
+            <td>Requested Quantity</td>
+            <td>Available Quantity</td>
+            <td>Date</td>
+            <td>Department</td>
+            <td>Status</td>
+            <td>Approved Quantity</td>
+            <td>Approve</td>
+
+          </tr>
+          <tr ng-repeat="request in vm1.requests"  >
+            <td>asd</td>
+            <td>{{request.drugName}}</td>
+            <td>{{request.drugId}}</td>
+
+
+
+          </tr>
+        </table>
+      </div>
+
+
+    </form>
+  </div>
+</section>

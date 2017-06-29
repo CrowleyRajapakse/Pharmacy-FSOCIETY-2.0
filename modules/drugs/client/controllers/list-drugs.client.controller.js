@@ -27,10 +27,10 @@
       };
 
 
-      vm.DropDownChangeHandler =function () {
+      /*vm.DropDownChangeHandler =function () {
           console.log('Drop down Controller');
           console.log(vm.drug.category);
-          /*angular
+          /!*angular
               .module('drugs').filter('unique', function() {
               return function(collection, keyname) {
                   var output = [],
@@ -46,10 +46,10 @@
 
                   return output;
               };
-          });*/
+          });*!/
 
 
-      };
+      };*/
   }
 
 
