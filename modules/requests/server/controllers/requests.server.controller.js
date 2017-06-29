@@ -10,7 +10,7 @@ var path = require('path'),
   _ = require('lodash');
 
 /**
- * Create a Prescription
+ * Create a Request
  */
 exports.create = function(req, res) {
   var request = new Request(req.body);
@@ -28,7 +28,7 @@ exports.create = function(req, res) {
 };
 
 /**
- * Show the current Prescription
+ * Show the current Request
  */
 exports.read = function(req, res) {
   // convert mongoose document to JSON
@@ -42,7 +42,7 @@ exports.read = function(req, res) {
 };
 
 /**
- * Update a Prescription
+ * Update a Request
  */
 exports.update = function(req, res) {
   var request = req.request;
@@ -61,7 +61,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an Prescription
+ * Delete an Request
  */
 exports.delete = function(req, res) {
   var request = req.request;
@@ -78,7 +78,7 @@ exports.delete = function(req, res) {
 };
 
 /**
- * List of Prescriptions
+ * List of Requests
  */
 exports.list = function(req, res) {
   Request.find().sort('-created').populate('user', 'displayName').exec(function(err, requests) {
@@ -93,7 +93,7 @@ exports.list = function(req, res) {
 };
 
 /**
- * Prescription middleware
+ * Request middleware
  */
 exports.requestByID = function(req, res, next, id) {
 

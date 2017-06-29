@@ -1,4 +1,4 @@
-// Prescriptions service used to communicate Prescriptions REST endpoints
+// Requests service used to communicate Requests REST endpoints
 (function () {
   'use strict';
 

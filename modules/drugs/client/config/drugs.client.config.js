@@ -44,10 +44,10 @@
     });
 
     //request part
-    /*menuService.addMenuItem('topbar', {
-      title: 'View Requests',
-      state: 'requests.view',
-      roles: ['user']
-    });*/
+      menuService.addMenuItem('topbar', {
+          title: 'View Requests',
+          state: 'requests.view',
+          roles: ['user']
+      });
   }
 }());

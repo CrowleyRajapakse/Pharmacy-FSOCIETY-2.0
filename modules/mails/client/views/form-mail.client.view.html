@@ -6,10 +6,20 @@
     <form name="vm.form.mailForm" class="form-horizontal" ng-submit="vm.save(vm.form.mailForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.mail.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.mailForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Mail name is required.</p>
+          <label class="control-label" for="email">Senders Email</label>
+          <input name="email" type="text" ng-model="vm.mail.email" id="email" class="form-control" placeholder="Email" required>
+          <div ng-messages="vm.form.mailForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Senders Email address is required.</p>
+          </div>
+          <label class="control-label" for="subject">Subject</label>
+          <input name="subject" type="text" ng-model="vm.mail.subject" id="subject" class="form-control" placeholder="Subject" required>
+          <div ng-messages="vm.form.mailForm.subject.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Subject is required.</p>
+          </div>
+          <label class="control-label" for="message">Message Body</label>
+          <textarea name="message" type="text" ng-model="vm.mail.message" id="message" class="form-control" placeholder="Message" required></textarea>
+          <div ng-messages="vm.form.mailFormm.message.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Message Body is required.</p>
           </div>
         </div>
         <div class="form-group">

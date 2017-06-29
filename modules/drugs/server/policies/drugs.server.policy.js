@@ -27,10 +27,6 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/drugs',
       permissions: ['get', 'post']
     }, {
-        resources: '/api/drugs/create',
-        permissions: ['get', 'post']
-
-    } , {
       resources: '/api/drugs/:drugId',
       permissions: ['get']
     }]

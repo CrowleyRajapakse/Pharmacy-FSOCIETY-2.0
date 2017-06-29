@@ -9,7 +9,7 @@
 
   function menuConfig(menuService) {
     // Set top bar menu items
-      /*
+
     menuService.addMenuItem('topbar', {
       title: 'Prescriptions',
       state: 'prescriptions',
@@ -29,7 +29,8 @@
       state: 'prescriptions.create',
       roles: ['user']
     });
-    */
+
+      /*
     menuService.addMenuItem('topbar', {
       title: 'Latest Prescriptions',
       state: 'prescriptions.list',
@@ -41,5 +42,6 @@
       state: 'prescriptions.create',
       roles: ['user']
     });
+    */
   }
 }());

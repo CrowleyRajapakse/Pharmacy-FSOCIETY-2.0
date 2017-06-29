@@ -17,7 +17,10 @@ exports.invokeRolesPolicies = function () {
     allows: [{
       resources: '/api/mails',
       permissions: '*'
-    }, {
+    },{
+      resources: '/api/mails/send',
+      permissions: '*'
+    },{
       resources: '/api/mails/:mailId',
       permissions: '*'
     }]
@@ -26,7 +29,10 @@ exports.invokeRolesPolicies = function () {
     allows: [{
       resources: '/api/mails',
       permissions: ['get', 'post']
-    }, {
+    },{
+      resources: '/api/mails/send',
+      permissions: 'post'
+    },{
       resources: '/api/mails/:mailId',
       permissions: ['get']
     }]

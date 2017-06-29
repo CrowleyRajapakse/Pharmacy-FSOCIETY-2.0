@@ -14,8 +14,10 @@ module.exports = function(app) {
 
   app.route('/api/mails/:mailId').all(mailsPolicy.isAllowed)
     .get(mails.read)
+    .post(mails.sendMails)
     .put(mails.update)
     .delete(mails.delete);
+
 
   // Finish by binding the Mail middleware
   app.param('mailId', mails.mailByID);

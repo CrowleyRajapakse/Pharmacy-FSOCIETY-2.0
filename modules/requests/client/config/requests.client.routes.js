@@ -14,21 +14,20 @@
         url: '/requests',
         template: '<ui-view/>'
       })
-    /*  .state('requests.list', {
+      .state('requests.list', {
         url: '',
         templateUrl: 'modules/requests/client/views/list-requests.client.view.html',
         controller: 'RequestsListController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Requests List'
         }
-      })*/
+      })
       .state('requests.create', {
         url: '/create',
-        templateUrl: 'modules/requests/client/views/form-prescription.client.view.html',
+        templateUrl: 'modules/requests/client/views/form-request.client.view.html',
         controller: 'RequestsController',
-        controllerAs: 'vm1',
+        controllerAs: 'vm',
         resolve: {
           requestResolve: newRequest
         },
@@ -39,9 +38,9 @@
       })
       .state('requests.edit', {
         url: '/:requestId/edit',
-        templateUrl: 'modules/requests/client/views/form-prescription.client.view.html',
+        templateUrl: 'modules/requests/client/views/form-request.client.view.html',
         controller: 'RequestsController',
-        controllerAs: 'vm1',
+        controllerAs: 'vm',
         resolve: {
           requestResolve: getRequest
         },
@@ -49,22 +48,19 @@
           roles: ['user', 'admin'],
           pageTitle: 'Edit Request {{ requestResolve.name }}'
         }
-      });
-
-    /*  .state('requests.view', {
+      })
+      .state('requests.view', {
         url: '/:requestId',
-        templateUrl: 'modules/requests/client/views/view-prescription.client.view.html',
+        templateUrl: 'modules/requests/client/views/view-request.client.view.html',
         controller: 'RequestsController',
         controllerAs: 'vm',
         resolve: {
-          prescriptionResolve: getRequest
+          requestResolve: getRequest
         },
         data: {
-          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Request {{ requestResolve.name }}'
         }
-      });*/
-
+      });
   }
 
   getRequest.$inject = ['$stateParams', 'RequestsService'];

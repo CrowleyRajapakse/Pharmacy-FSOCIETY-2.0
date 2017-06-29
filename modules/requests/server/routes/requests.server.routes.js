@@ -3,11 +3,11 @@
 /**
  * Module dependencies
  */
-var requestsPolicy = require('../policies/requests.server.policy.js'),
-  requests = require('../controllers/requests.server.controller.js');
+var requestsPolicy = require('../policies/requests.server.policy'),
+  requests = require('../controllers/requests.server.controller');
 
 module.exports = function(app) {
-  // Prescriptions Routes
+  // Requests Routes
   app.route('/api/requests').all(requestsPolicy.isAllowed)
     .get(requests.list)
     .post(requests.create);
@@ -17,6 +17,6 @@ module.exports = function(app) {
     .put(requests.update)
     .delete(requests.delete);
 
-  // Finish by binding the Prescription middleware
+  // Finish by binding the Request middleware
   app.param('requestId', requests.requestByID);
 };

@@ -17,11 +17,19 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.sendEmail = sendEmail;
 
     // Remove existing Mail
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
         vm.mail.$remove($state.go('mails.list'));
+      }
+    }
+
+    //Send Mail
+    function sendEmail() {
+      if ($window.confirm('Are you sure you want to Send?')) {
+        vm.mail.$sendEmail($state.go('mails.list'));
       }
     }
 

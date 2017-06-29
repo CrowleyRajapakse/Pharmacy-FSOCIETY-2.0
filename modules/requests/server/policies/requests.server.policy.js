@@ -9,7 +9,7 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Prescriptions Permissions
+ * Invoke Requests Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
@@ -31,7 +31,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['chiefPharmacist'],
+    roles: ['guest'],
     allows: [{
       resources: '/api/requests',
       permissions: ['get']
@@ -43,12 +43,12 @@ exports.invokeRolesPolicies = function () {
 };
 
 /**
- * Check If Prescriptions Policy Allows
+ * Check If Requests Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
-  var roles = (req.user) ? req.user.roles : ['chiefPharmacist'];
+  var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an Prescription is being processed and the current user created it then allow any manipulation
+  // If an Request is being processed and the current user created it then allow any manipulation
   if (req.request && req.user && req.request.user && req.request.user.id === req.user.id) {
     return next();
   }

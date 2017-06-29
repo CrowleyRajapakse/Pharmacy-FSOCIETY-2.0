@@ -61,17 +61,20 @@
               data: {
                 pageTitle: 'Drug {{ drugResolve.name }}'
               }
-            });
+            })
 //request part begin
-       /* .state('requests.list', {
-            url: '',
-            templateUrl: 'modules/drugs/client/views/list-requests.client.view.html',
-            controller: 'DrugsListController',
+        .state('requests.view', {
+            url: '/requests',
+            templateUrl: 'modules/drugs/client/views/view-requests.client.view.html',
+            controller: 'DrugsController',
             controllerAs: 'vm',
+            resolve: {
+                drugResolve: getRequest
+            },
             data: {
-                pageTitle: 'Drugs List'
+                pageTitle: 'Request {{ requestResolve.name }}'
             }
-        });*/
+        });
       //request part end
   }
 
@@ -92,18 +95,18 @@
 
 
 
-   /* getRequest.$inject = ['$stateParams', 'RequestsService'];
+    getRequest.$inject = ['$stateParams', 'DrugsService'];
 
-    function getRequest($stateParams, RequestsService) {
-        return RequestsService.get({
-            requestId: $stateParams.requestId
+    function getRequest($stateParams, DrugsService) {
+        return DrugsService.get({
+            drugId: $stateParams.drugId
         }).$promise;
     }
-    newRequest.$inject = ['RequestsService'];
+    newRequest.$inject = ['DrugsService'];
 
-    function newRequest(RequestsService) {
-        return new RequestsService();
-    }*/
+    function newRequest(DrugsService) {
+        return new DrugsService();
+    }
     //request end
 
 

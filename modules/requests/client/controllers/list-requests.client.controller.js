@@ -8,8 +8,8 @@
   RequestsListController.$inject = ['RequestsService'];
 
   function RequestsListController(RequestsService) {
-    var vm1 = this;
+    var vm = this;
 
-    vm1.requests = RequestsService.query();
+    vm.requests = RequestsService.query();
   }
 }());
