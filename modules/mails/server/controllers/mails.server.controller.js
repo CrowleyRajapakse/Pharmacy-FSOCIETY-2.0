@@ -9,6 +9,7 @@ var path = require('path'),
   Mail = mongoose.model('Mail'),
   User = mongoose.model('User'),
   nodemailer = require('nodemailer'),
+  sgTransport = require('nodemailer-sendgrid-transport'),
   async = require('async'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
@@ -75,10 +76,44 @@ exports.create = function(req, res,next) {
   });
 };
 
-exports.sendMail = function(req,res){
+exports.sendMails = function(req,res){
   var mail = req.mail;
-  mail.user = req.user;
+  //mail.user = req.user;
 
+  mail.sendEmail(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      var options = {
+        auth: {
+          api_key: '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'
+        }
+      };
+      var mailOptions = {
+        to: mail.email,
+        from: config.mailer.from,
+        subject: mail.subject,
+        text: mail.message
+      };
+      var mailer = nodemailer.createTransport(sgTransport(options));
+      mailer.sendMail(mailOptions, function (error) {
+        if (!error) {
+          console.log("Success");
+          res.send({
+            message: 'An email has been sent to the provided email with further instructions.'
+          });
+        } else {
+          console.log("Error");
+          return res.status(400).send({
+            message: 'Failure sending email'
+          });
+        }
+      });
+    }
+  });
+  /*
   var mailOptions = {
     to: mail.email,
     from: config.mailer.from,
@@ -96,6 +131,7 @@ exports.sendMail = function(req,res){
       });
     }
   });
+  */
 };
 
 /**

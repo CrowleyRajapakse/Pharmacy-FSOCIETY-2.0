@@ -41,5 +41,16 @@
       state: 'mails.create',
       roles: ['user']
     });
+    menuService.addMenuItem('sidebar', {
+      title: 'Latest Mails',
+      state: 'mails.list',
+      roles: ['*']
+    });
+
+    menuService.addMenuItem('sidebar', {
+      title: 'Create Mails',
+      state: 'mails.create',
+      roles: ['user']
+    });
   }
 }());

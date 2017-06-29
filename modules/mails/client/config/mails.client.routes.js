@@ -36,21 +36,19 @@
           pageTitle: 'Mails Create'
         }
       })
-        /*
-      .state('mails.send', {
-        url: '/sendMail',
+      .state('mails.sendMails', {
+        url: '/:mailId',
         templateUrl: 'modules/mails/client/views/view-mail.client.view.html',
         controller: 'MailsController',
         controllerAs: 'vm',
         resolve: {
-          mailResolve: sendMail
+          mailResolve: sendEmail
         },
         data: {
           roles: ['user', 'admin'],
           pageTitle: 'Mails Send'
         }
       })
-      */
       .state('mails.edit', {
         url: '/:mailId/edit',
         templateUrl: 'modules/mails/client/views/form-mail.client.view.html',
@@ -93,13 +91,13 @@
     return new MailsService();
   }
 
-  /*
-  sendMail.$inject = ['$stateParams','MailsService'];
-  function sendMail($stateParams, MailsService) {
+
+  sendEmail.$inject = ['$stateParams','MailsService'];
+  function sendEmail($stateParams, MailsService) {
     return MailsService.get({
       mailId: $stateParams.mailId
     }).$promise;
   }
-  */
+
 
 }());
