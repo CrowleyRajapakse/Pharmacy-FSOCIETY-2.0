@@ -11,7 +11,8 @@ module.exports = function(app) {
 
   app.route('/api/drugs').all(drugsPolicy.isAllowed)
     .get(drugs.list)
-    .post(drugs.create);
+    .post(drugs.create)
+    .post(drugs.addNew);
 
   app.route('/api/drugs/:drugId').all(drugsPolicy.isAllowed)
     .get(drugs.read)

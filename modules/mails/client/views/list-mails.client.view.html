@@ -13,9 +13,7 @@
         <span ng-if="mail.user" ng-bind="mail.user.displayName"></span>
         <span ng-if="!mail.user">Deleted User</span>
       </small>
-      <h3 class="list-group-item-heading" ng-bind="mail.subject"></h3>
-      <h5 class="list-group-item-heading" ng-bind="mail.email"></h5>
-      <p id="mailMessage">{{mail.message | limitTo:50}}</p>
+      <h4 class="list-group-item-heading" ng-bind="mail.name"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.mails.$resolved && !vm.mails.length">

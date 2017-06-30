@@ -1,18 +1,9 @@
 <section>
   <div class="page-header">
-    <h3><span ng-bind="vm.mail.subject"></span><small> Sent To <span ng-bind="vm.mail.email"></span></small></h3>
-    <br>
-    <div id="mailDetails">
-      <p>Subject :<strong>{{vm.mail.subject}}</strong> </p>
-      <p>To : {{vm.mail.email}}</p>
-      <p>Message : {{vm.mail.message}}</p>
-    </div>
+    <h1 ng-bind="vm.mail.name"></h1>
   </div>
   <div class="pull-right"
        ng-show="vm.mail.isCurrentUserOwner">
-    <a class="btn btn-primary" ng-click="vm.sendEmail()">
-      <i class="glyphicon glyphicon-ok-sign"></i>
-    </a>
     <a class="btn btn-primary"
        ui-sref="mails.edit({ mailId: vm.mail._id })">
       <i class="glyphicon glyphicon-edit"></i>
