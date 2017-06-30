@@ -9,7 +9,7 @@
 
   function menuConfig(menuService) {
     // Set top bar menu items
-      /*
+
     menuService.addMenuItem('topbar', {
       title: 'Mails',
       state: 'mails',
@@ -29,7 +29,8 @@
       state: 'mails.create',
       roles: ['user']
     });
-    */
+
+      /*
     menuService.addMenuItem('topbar', {
       title: 'Latest Mails',
       state: 'mails.list',
@@ -41,5 +42,17 @@
       state: 'mails.create',
       roles: ['user']
     });
+    menuService.addMenuItem('sidebar', {
+      title: 'Latest Mails',
+      state: 'mails.list',
+      roles: ['*']
+    });
+
+    menuService.addMenuItem('sidebar', {
+      title: 'Create Mails',
+      state: 'mails.create',
+      roles: ['user']
+    });
+    */
   }
 }());

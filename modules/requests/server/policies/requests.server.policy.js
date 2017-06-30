@@ -9,53 +9,47 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Mails Permissions
+ * Invoke Requests Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/mails',
+      resources: '/api/requests',
       permissions: '*'
-    },{
-      resources: '/api/mails/send',
-      permissions: '*'
-    },{
-      resources: '/api/mails/:mailId',
+    }, {
+      resources: '/api/requests/:requestId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/mails',
+      resources: '/api/requests',
       permissions: ['get', 'post']
-    },{
-      resources: '/api/mails/send',
-      permissions: 'post'
-    },{
-      resources: '/api/mails/:mailId',
+    }, {
+      resources: '/api/requests/:requestId',
       permissions: ['get']
     }]
   }, {
     roles: ['guest'],
     allows: [{
-      resources: '/api/mails',
+      resources: '/api/requests',
       permissions: ['get']
     }, {
-      resources: '/api/mails/:mailId',
+      resources: '/api/requests/:requestId',
       permissions: ['get']
     }]
   }]);
 };
 
 /**
- * Check If Mails Policy Allows
+ * Check If Requests Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an Mail is being processed and the current user created it then allow any manipulation
-  if (req.mail && req.user && req.mail.user && req.mail.user.id === req.user.id) {
+  // If an Request is being processed and the current user created it then allow any manipulation
+  if (req.request && req.user && req.request.user && req.request.user.id === req.user.id) {
     return next();
   }
 
