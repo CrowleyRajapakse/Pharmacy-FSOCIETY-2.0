@@ -31,18 +31,18 @@ exports.create = function(req, res) {
  * Create a new Drug
  */
 exports.addNew = function(req, res) {
-    var drug = new Drug(req.body);
-    drug.user = req.user;
+  var drug = new Drug(req.body);
+  drug.user = req.user;
 
-    drug.save(function(err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.jsonp(drug);
-        }
-    });
+  drug.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(drug);
+    }
+  });
 };
 
 /**
