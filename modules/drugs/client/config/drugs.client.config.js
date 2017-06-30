@@ -95,5 +95,24 @@
           roles: ['user']
       });*/
 
+/*    //request part
+      menuService.addMenuItem('topbar', {
+          title: 'View Requests',
+          state: 'requests.view',
+          roles: ['user']
+      });*/
+
+    menuService.addMenuItem('topbar', {
+      title: 'Add New Drug',
+      state: 'drugs.addNew',
+      roles: ['user']
+    });
+
+    menuService.addMenuItem('topbar', {
+      title: 'Home',
+      state: 'drugs.stock',
+      roles: ['user']
+    });
+
   }
 }());
