@@ -2,9 +2,10 @@
 
 var defaultEnvConfig = require('./default');
 
+
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/Pharmacy',
+    uri:/* 'mongodb://sampathRajapakse:1qaz2wsx@Q@ds015869.mlab.com:15869/fsocietypharmacy' ||*/ process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ==='mongodb://sampathRajapakse:1qaz2wsx@Q@ds015869.mlab.com:15869/fsocietypharmacy' || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/Pharmacy',
     options: {
       user: '',
       pass: ''
@@ -68,10 +69,10 @@ module.exports = {
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
     options: {
-      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+      service: process.env.MAILER_SERVICE_PROVIDER || 'smtp.gmail.com',
       auth: {
-        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
-        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+        user: process.env.MAILER_EMAIL_ID || 'srrajapakse1@gmail.com',
+        pass: process.env.MAILER_PASSWORD || 'cskamoscow'
       }
     }
   },

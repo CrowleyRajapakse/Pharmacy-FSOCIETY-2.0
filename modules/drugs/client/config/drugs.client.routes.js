@@ -8,6 +8,10 @@
 
   routeConfig.$inject = ['$stateProvider'];
 
+  function getFormName(form) {
+    console.log(form.$name);
+  }
+
   function routeConfig($stateProvider) {
     $stateProvider
             .state('drugs', {
@@ -15,9 +19,27 @@
               url: '/drugs',
               template: '<ui-view/>'
             })
+            .state('drugs.stock', {
+              url: '/stock',
+              templateUrl: 'modules/drugs/client/views/list-drug-stock.client.view.html',
+              controller: 'DrugsListController',
+              controllerAs: 'vm',
+              data: {
+                pageTitle: 'Drugs Stock'
+              }
+            })
             .state('drugs.list', {
               url: '',
               templateUrl: 'modules/drugs/client/views/list-drugs.client.view.html',
+              controller: 'DrugsListController',
+              controllerAs: 'vm',
+              data: {
+                pageTitle: 'Drugs List'
+              }
+            })
+            .state('drugs.newDurgList', {
+              url: '',
+              templateUrl: 'modules/drugs/client/views/list-newdrugs.client.view.html',
               controller: 'DrugsListController',
               controllerAs: 'vm',
               data: {
@@ -33,7 +55,7 @@
                 drugResolve: newDrug
               },
               data: {
-                roles: ['user', 'admin'],
+                roles: ['user', 'admin','chiefPharmacist'],
                 pageTitle: 'Drugs Create'
               }
             })
@@ -46,8 +68,46 @@
                 drugResolve: getDrug
               },
               data: {
-                roles: ['user', 'admin'],
+                roles: ['user', 'admin','chiefPharmacist'],
                 pageTitle: 'Edit Drug {{ drugResolve.name }}'
+              }
+            })
+            .state('drugs.addNew', {
+              url: '/addNew',
+              templateUrl: 'modules/drugs/client/views/form-newdrug.client.view.html',
+              controller: 'DrugsController',
+              controllerAs: 'vm',
+              resolve: {
+                drugResolve: newDrug
+              },
+              data: {
+                roles: ['user', 'admin','chiefPharmacist'],
+                pageTitle: 'Add New Drug'
+              }
+            })
+            .state('drugs.newDrugEdit', {
+              url: '/:drugId/newDrugEdit',
+              templateUrl: 'modules/drugs/client/views/form-newdrug.client.view.html',
+              controller: 'DrugsController',
+              controllerAs: 'vm',
+              resolve: {
+                drugResolve: getDrug
+              },
+              data: {
+                roles: ['user', 'admin','chiefPharmacist'],
+                pageTitle: 'Edit Drug Information {{ drugResolve.name }}'
+              }
+            })
+            .state('drugs.newDrugView', {
+              url: '/:drugId/view',
+              templateUrl: 'modules/drugs/client/views/viewnew-drug.client.view.html',
+              controller: 'DrugsController',
+              controllerAs: 'vm',
+              resolve: {
+                drugResolve: getDrug
+              },
+              data: {
+                pageTitle: 'Drug {{ drugResolve.name }}'
               }
             })
             .state('drugs.view', {
@@ -61,9 +121,8 @@
               data: {
                 pageTitle: 'Drug {{ drugResolve.name }}'
               }
-            })
-                /*
-//request part begin
+            });
+/*//request part begin
         .state('requests.view', {
             url: '/requests',
             templateUrl: 'modules/drugs/client/views/view-requests.client.view.html',
@@ -76,8 +135,7 @@
                 pageTitle: 'Request {{ requestResolve.name }}'
             }
         });
-      //request part end
-      */
+      //request part end*/
   }
 
   getDrug.$inject = ['$stateParams', 'DrugsService'];
@@ -93,10 +151,9 @@
     return new DrugsService();
   }
 
-  //request begin
+/*  //request begin
 
 
-    /*
 
     getRequest.$inject = ['$stateParams', 'DrugsService'];
 
@@ -110,7 +167,7 @@
     function newRequest(DrugsService) {
         return new DrugsService();
     }
-    //request end
+    //request end*/
 
-*/
+
 }());

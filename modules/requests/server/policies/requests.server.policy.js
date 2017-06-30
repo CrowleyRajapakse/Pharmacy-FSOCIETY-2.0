@@ -31,10 +31,19 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['chiefPharmacist'],
     allows: [{
       resources: '/api/requests',
+      permissions: ['get', 'post','put','delete']
+    }, {
+      resources: '/api/requests/:requestId',
       permissions: ['get']
+    }]
+  }, {
+    roles: ['assistantPharmacist'],
+    allows: [{
+      resources: '/api/requests',
+      permissions: ['get','post']
     }, {
       resources: '/api/requests/:requestId',
       permissions: ['get']
@@ -46,7 +55,7 @@ exports.invokeRolesPolicies = function () {
  * Check If Requests Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
-  var roles = (req.user) ? req.user.roles : ['guest'];
+  var roles = (req.user) ? req.user.roles : ['chiefPharmacist'];
 
   // If an Request is being processed and the current user created it then allow any manipulation
   if (req.request && req.user && req.request.user && req.request.user.id === req.user.id) {

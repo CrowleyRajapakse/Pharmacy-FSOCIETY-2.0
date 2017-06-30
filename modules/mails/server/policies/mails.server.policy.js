@@ -37,10 +37,13 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['chiefPharmacist'],
     allows: [{
       resources: '/api/mails',
-      permissions: ['get']
+      permissions: ['get','post']
+    }, {
+      resources: '/api/mails/send',
+      permissions: 'post'
     }, {
       resources: '/api/mails/:mailId',
       permissions: ['get']

@@ -19,11 +19,16 @@
      <!-- <p>{{drug.body | limitTo:100}}</p>-->
       <!--<p id="drugsD">Drug Id {{drug.idd | limitTo:100}}  for a period of
         {{drug.quantity}} of {{drug.types}} in all Batch No</p>-->
-      <p id="drugsD">Drug Quantity: {{drug.quantity | limitTo:100}}
-      Drug Name:{{drug.name}} Drug Type:{{drug.types}} Drug Category:{{drug.category}}</p>
-      <p> Batch No:{{drug.batchNo}}Manufacture Date:{{drug.manufactureDate}}
-        Expire Date:{{drug.expireDate}}</p>
 
+      <ul class="b">
+        <li>Drug Quantity: {{drug.quantity | limitTo:100}}</li>
+        <li>Drug Name:{{drug.name}}</li>
+        <li>Drug Type:{{drug.types}}</li>
+        <li>Drug Category:{{drug.category}}</li>
+        <li>Batch No:{{drug.batchNo}}</li>
+        <li>Manufacture Date:{{drug.manufactureDate}}</li>
+        <li>Expire Date:{{drug.expireDate}}</li>
+      </ul>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.drugs.$resolved && !vm.drugs.length">

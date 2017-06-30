@@ -21,4 +21,27 @@
   <div class="alert alert-warning text-center" ng-if="vm.prescriptions.$resolved && !vm.prescriptions.length">
     No Prescriptions yet, why don't you <a ui-sref="prescriptions.create">create one</a>?
   </div>
+  <div class="page-header">
+    <h1>Drug Stock</h1>
+  </div>
+
+  <fieldset>
+    <div>
+      <table class="table table-striped">
+        <tr >
+          <td><b>Name</b></td>
+          <td><b>Type</b></td>
+          <td><b>Category</b></td>
+          <td><b>Quantity</b></td>
+        </tr>
+        <tr ng-repeat="drug in vm.drugs">
+          <td>{{drug.name}}</td>
+          <td>{{drug.types}}</td>
+          <td>{{drug.category}}</td>
+          <td>{{drug.quantity}}</td>
+        </tr>
+      </table>
+
+    </div>
+  </fieldset>
 </section>

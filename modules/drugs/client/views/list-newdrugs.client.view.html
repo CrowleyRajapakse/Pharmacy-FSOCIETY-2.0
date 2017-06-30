@@ -1,0 +1,87 @@
+<section>
+  <script src="/public/lib/angular/angular-filter-master/dist/angular-filter.js"></script>
+  <div class="page-header">
+    <h1>Drugs</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="drug in vm.drugs"
+       ui-sref="drugs.newDrugView({ drugId: drug._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="drug.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="drug.users" ng-bind="drug.users.displayName"></span>
+        <span ng-if="!drug.users">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="drug.name"></h4>
+     <!-- <p>{{drug.body | limitTo:100}}</p>-->
+      <!--<p id="drugsD">Drug Id {{drug.idd | limitTo:100}}  for a period of
+        {{drug.quantity}} of {{drug.types}} in all Batch No</p>-->
+      <p id="drugsD">
+      Drug Name:{{drug.name}} Drug Type:{{drug.types}} Drug Category:{{drug.category}}</p>
+
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.drugs.$resolved && !vm.drugs.length">
+    No Drugs yet, why don't you <a ui-sref="drugs.addNew">Add Drug</a>
+  </div>
+
+  <div class="page-header">
+    <h1>{{vm.drug._id ? 'Edit Drug' : 'Drug Information'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.addNewDrugForm" class="form-horizontal" ng-submit="vm.save(vm.form.addNewDrugForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="category"> Drug Category</label>
+          <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control"  required>
+            <option value="">----All----</option>
+            <option ng-repeat="drug in vm.drugs" value="{{drug.category}}">{{drug.category}}</option>
+<!--            <option value="Narcotics">Narcotics</option>
+            <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
+            <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
+            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>-->
+          </select>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="drug_name"> Drug Name</label>
+          <select name="drug_name" type="text" ng-model="vm.drug.drug_name" id="drug_name" class="form-control"  required>
+            <option ng-repeat="drug in vm.drugs"  ng-if="vm.drug.category == drug.category" value="{{drug.name}}">{{drug.name}}</option>
+            <!--<option value="">&#45;&#45;&#45;&#45;Select&#45;&#45;&#45;&#45;</option>
+            <option value="Ampicllin">Ampicllin</option>
+            <option value="Ampicllin_250mg">Ampicllin 250mg</option>
+            <option value="Afrin">Afrin</option>
+            <option value="Losartan">Losartan</option>
+            <option value="Panadol">Panadol</option>-->
+          </select>
+        </div>
+
+<!--        <div>
+        <table class="table table-striped">
+          <tr >
+            <td>Name</td>
+            <td>Batch No</td>
+            <td>Edit</td>
+            <td>View</td>
+            <td>Delete</td>
+          </tr>
+          <tr ng-repeat="drug in vm.drugs">
+            <td>{{drug.name}}</td>
+            <td>{{drug.batchNo}}</td>
+            <td><button class="btn btn-primary" ui-sref="drugs.edit({ drugId:drug._id })" ng-click="">Edit</button></td>
+            <td><button class="btn btn-primary" ng-click="">View</button></td>
+            <td><button class="btn btn-primary" ng-click="remove()">Delete</button></td>
+
+
+          </tr>
+        </table>
+        </div>-->
+      </fieldset>
+    </form>
+
+  </div>
+
+
+</section>

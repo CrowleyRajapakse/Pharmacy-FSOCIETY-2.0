@@ -2,8 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="vm.request.name"></h1>
   </div>
-  <div class="pull-right"
-       ng-show="vm.request.isCurrentUserOwner">
+  <div class="pull-right" ng-show="vm.request.isCurrentUserOwner || vm.request.isAllowed">
     <a class="btn btn-primary"
        ui-sref="requests.edit({ requestId: vm.request._id })">
       <i class="glyphicon glyphicon-edit"></i>
@@ -11,6 +10,17 @@
     <a class="btn btn-primary" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
+  </div>
+  <div>
+    <h1><span ng-bind="vm.request.drugName"></span> <small>in  <span ng-bind="vm.request.drugCategory"></span></small></h1>
+    <!-- <div ng-bind="vm.prescription.frequency"></div> -->
+    <br>
+    <div id="print">
+      <p>Drug Name : {{vm.request.drugName}}</p>
+      <p>Catgory : {{vm.request.drugCategory}}</p>
+      <p>Quantity : {{vm.request.quantity}}</p>
+      <p>Status : <strong>{{vm.request.status}}<strong></p>
+    </div>
   </div>
   <small>
     <em class="text-muted">
@@ -22,5 +32,9 @@
       <span ng-if="!vm.request.user">Deleted User</span>
     </em>
   </small>
+  <h3 class="list-group-item-heading" ng-bind="request.drugName"></h3>
+  <h3 class="list-group-item-heading" ng-bind="request.quantity"></h3>
+  <h3 class="list-group-item-heading" ng-bind="request.drugCategory"></h3>
+  <h3 class="list-group-item-heading" ng-bind="request.status"></h3>
   <p class="lead" ng-bind="vm.request.content"></p>
 </section>

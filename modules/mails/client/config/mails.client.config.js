@@ -14,20 +14,21 @@
       title: 'Mails',
       state: 'mails',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['admin','user','chiefPharmacist']
     });
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'mails', {
       title: 'List Mails',
-      state: 'mails.list'
+      state: 'mails.list',
+      roles: ['user','chiefPharmacist','admin']
     });
 
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'mails', {
       title: 'Create Mail',
       state: 'mails.create',
-      roles: ['user']
+      roles: ['user','chiefPharmacist']
     });
 
       /*

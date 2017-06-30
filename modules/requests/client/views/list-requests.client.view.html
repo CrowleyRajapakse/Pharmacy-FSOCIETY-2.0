@@ -13,7 +13,10 @@
         <span ng-if="request.user" ng-bind="request.user.displayName"></span>
         <span ng-if="!request.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="request.name"></h4>
+      <h3 class="list-group-item-heading" ng-bind="request.drugName"></h3>
+      <h4 class="list-group-item-heading" ng-bind="request.quantity"></h4>
+      <h5 class="list-group-item-heading" ng-bind="request.drugCategory"></h5>
+      <h6 class="list-group-item-heading" ng-bind="request.status"></h6>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.requests.$resolved && !vm.requests.length">

@@ -6,12 +6,57 @@
     <form name="vm.form.requestForm" class="form-horizontal" ng-submit="vm.save(vm.form.requestForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.request.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.requestForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Request name is required.</p>
+          <label class="control-label" for="drugCategory"> Drug Category</label>
+          <select name="drugCategory" type="text" ng-model="vm.request.drugCategory" id="drugCategory" class="form-control"  required>
+            <option value="Narcotics">Narcotics</option>
+            <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
+            <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
+            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>
+          </select>
+
+          <div ng-messages="vm.form.requestForm.drugCategory.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Drug Category is required.</p>
+          </div>
+
+        </div>
+          <div class="form-group" show-errors>
+            <label class="control-label" for="drugName">Drug Name</label>
+            <select name="drugName" type="text" ng-model="vm.request.drugName" id="drugName" class="form-control"  required>
+              <option value="Ampicllin">Ampicllin</option>
+              <option value="Ampicllin_250mg">Ampicllin 250mg</option>
+              <option value="Afrin">Afrin</option>
+              <option value="Losartan">Losartan</option>
+              <option value="Panadol">Panadol</option>
+            </select>
+
+            <div ng-messages="vm.form.requestForm.drugName.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Drug Name is required.</p>
+            </div>
+
+          </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="quantity">Quantity</label>
+          <input name="quantity" type="text" ng-model="vm.request.quantity" id="quantity" class="form-control" placeholder="Quantity" required>
+          <div ng-messages="vm.form.requestForm.quantity.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Request quantity is required.</p>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="status">Status</label>
+          <select name="status" type="text" ng-model="vm.request.status" id="status" class="form-control"  required>
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+          <div ng-messages="vm.form.requestForm.status.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Status is required.</p>
+          </div>
+        </div>
+
+
+
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.request._id ? 'Update' : 'Create'}}</button>
         </div>

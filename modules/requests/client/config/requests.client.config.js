@@ -13,7 +13,7 @@
       title: 'Requests',
       state: 'requests',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['admin','user','assistantPharmacist','chiefPharmacist']
     });
 
     // Add the dropdown list item
@@ -26,7 +26,7 @@
     menuService.addSubMenuItem('topbar', 'requests', {
       title: 'Create Request',
       state: 'requests.create',
-      roles: ['user']
+      roles: ['user','assistantPharmacist']
     });
   }
 }());

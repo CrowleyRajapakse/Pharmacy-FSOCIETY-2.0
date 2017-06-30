@@ -20,7 +20,7 @@
         controller: 'PrescriptionsListController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin','chiefPharmacist'],
+          roles: ['user', 'admin','chiefPharmacist','assistantPharmacist','doctor'],
           pageTitle: 'Prescriptions List'
         }
       })
@@ -33,7 +33,7 @@
           prescriptionResolve: newPrescription
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','doctor'],
           pageTitle: 'Prescriptions Create'
         }
       })
@@ -46,7 +46,7 @@
           prescriptionResolve: getPrescription
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','doctor'],
           pageTitle: 'Edit Prescription {{ prescriptionResolve.name }}'
         }
       })
@@ -56,7 +56,7 @@
         controller: 'PrescriptionsListController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin','chiefPharmacist'],
+          roles: ['user', 'admin','chiefPharmacist','assistantPharmacist'],
           pageTitle: 'Prescriptions List'
         }
       })
@@ -69,7 +69,7 @@
           prescriptionResolve: getPrescription
         },
         data: {
-          roles: ['user', 'admin','chiefPharmacist'],
+          roles: ['user', 'admin','chiefPharmacist','assistantPharmacist','doctor'],
           pageTitle: 'Prescription {{ prescriptionResolve.name }}'
         }
       });

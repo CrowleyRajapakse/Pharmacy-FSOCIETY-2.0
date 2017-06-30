@@ -31,6 +31,24 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
+    roles: ['doctor'],
+    allows: [{
+      resources: '/api/prescriptions',
+      permissions: ['get', 'post']
+    }, {
+      resources: '/api/prescriptions/:prescriptionId',
+      permissions: ['get']
+    }]
+  }, {
+    roles: ['assistantPharmacist'],
+    allows: [{
+      resources: '/api/prescriptions',
+      permissions: ['get', 'post']
+    }, {
+      resources: '/api/prescriptions/:prescriptionId',
+      permissions: ['get']
+    }]
+  }, {
     roles: ['chiefPharmacist'],
     allows: [{
       resources: '/api/prescriptions',
@@ -46,7 +64,7 @@ exports.invokeRolesPolicies = function () {
  * Check If Prescriptions Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
-  var roles = (req.user) ? req.user.roles : ['chiefPharmacist'];
+  var roles = (req.user) ? req.user.roles : ['chiefPharmacist','doctor'];
 
   // If an Prescription is being processed and the current user created it then allow any manipulation
   if (req.prescription && req.user && req.prescription.user && req.prescription.user.id === req.user.id) {

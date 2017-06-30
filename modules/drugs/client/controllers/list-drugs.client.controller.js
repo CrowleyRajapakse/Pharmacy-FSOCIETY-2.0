@@ -13,23 +13,23 @@
 
     vm.drugs = DrugsService.query();
 
-   vm.removeInArray = function (index) {
-          console.log('called');
-          if ($window.confirm('Are you sure you want to delete?')) {
+    vm.removeInArray = function (index) {
+      console.log('called');
+      if ($window.confirm('Are you sure you want to delete?')) {
              // drugs[index].$remove($state.go('drugs.list'));
               //console.log(vm.drugs[index]);
 
-              vm.drugs[index].$remove($state.go('drugs.list'));
-              vm.drugs.splice(index, 1);
+        vm.drugs[index].$remove($state.go('drugs.list'));
+        vm.drugs.splice(index, 1);
 
 
-          }
-      };
+      }
+    };
 
 
-      vm.DropDownChangeHandler =function () {
-          console.log('Drop down Controller');
-          console.log(vm.drug.category);
+    vm.DropDownChangeHandler =function () {
+      console.log('Drop down Controller');
+      console.log(vm.drug.category);
           /*angular
               .module('drugs').filter('unique', function() {
               return function(collection, keyname) {
@@ -49,11 +49,7 @@
           });*/
 
 
-      };
+    };
   }
-
-
-
-
 }());
 
