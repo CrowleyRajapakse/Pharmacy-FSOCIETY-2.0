@@ -11,10 +11,7 @@ module.exports = function(app) {
 
   app.route('/api/drugs').all(drugsPolicy.isAllowed)
     .get(drugs.list)
-<<<<<<< HEAD
     .get(drugs.newDrugList)
-=======
->>>>>>> origin/master
     .post(drugs.create)
     .post(drugs.addNew);
 

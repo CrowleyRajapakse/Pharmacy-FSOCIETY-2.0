@@ -32,7 +32,7 @@
           supplierResolve: newSupplier
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Suppliers Create'
         }
       })
@@ -45,7 +45,7 @@
           supplierResolve: getSupplier
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Edit Supplier {{ supplierResolve.name }}'
         }
       })

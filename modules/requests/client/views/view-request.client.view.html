@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="vm.request.name"></h1>
   </div>
-  <div class="pull-right" ng-show="vm.request.isCurrentUserOwner || vm.request.isAllowed">
+  <div class="pull-right" >
     <a class="btn btn-primary"
        ui-sref="requests.edit({ requestId: vm.request._id })">
       <i class="glyphicon glyphicon-edit"></i>

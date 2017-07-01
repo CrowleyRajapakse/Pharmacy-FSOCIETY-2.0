@@ -26,7 +26,7 @@
     menuService.addSubMenuItem('topbar', 'suppliers', {
       title: 'Create Supplier',
       state: 'suppliers.create',
-      roles: ['user']
+      roles: ['user','chiefPharmacist']
     });
   }
 }());

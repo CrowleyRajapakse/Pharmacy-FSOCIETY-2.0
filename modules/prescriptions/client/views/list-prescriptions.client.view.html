@@ -2,8 +2,22 @@
   <div class="page-header">
     <h1>Prescriptions</h1>
   </div>
+  <!--
+  <div class="col-md-4" >
+    <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" />
+  </div>
+  -->
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label >Search</label>
+        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+      </div>
+    </form>
+  <br/>
+
   <div class="list-group">
-    <a ng-repeat="prescription in vm.prescriptions"
+    <a ng-repeat="prescription in vm.prescriptions |orderBy : patient| filter : search"
        ui-sref="prescriptions.view({ prescriptionId: prescription._id })"
        class="list-group-item">
       <small class="list-group-item-text">

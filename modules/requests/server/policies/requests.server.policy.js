@@ -28,7 +28,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get', 'post']
     }, {
       resources: '/api/requests/:requestId',
-      permissions: ['get']
+      permissions: ['get','post','put']
     }]
   }, {
     roles: ['chiefPharmacist'],
@@ -37,7 +37,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get', 'post','put','delete']
     }, {
       resources: '/api/requests/:requestId',
-      permissions: ['get']
+      permissions: ['get','post','put']
     }]
   }, {
     roles: ['assistantPharmacist'],

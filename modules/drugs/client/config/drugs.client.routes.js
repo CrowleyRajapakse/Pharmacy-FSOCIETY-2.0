@@ -21,11 +21,7 @@
             })
             .state('drugs.stock', {
               url: '/stock',
-<<<<<<< HEAD
               templateUrl: 'modules/drugs/client/views/list-drug-stock.client.view.html',
-=======
-              templateUrl: 'modules/drugs/client/views/view-drug-stock.client.view.html',
->>>>>>> origin/master
               controller: 'DrugsListController',
               controllerAs: 'vm',
               data: {
@@ -85,11 +81,7 @@
                 drugResolve: newDrug
               },
               data: {
-<<<<<<< HEAD
                 roles: ['user', 'admin','chiefPharmacist'],
-=======
-                roles: ['user', 'admin'],
->>>>>>> origin/master
                 pageTitle: 'Add New Drug'
               }
             })
@@ -102,11 +94,7 @@
                 drugResolve: getDrug
               },
               data: {
-<<<<<<< HEAD
                 roles: ['user', 'admin','chiefPharmacist'],
-=======
-                roles: ['user', 'admin'],
->>>>>>> origin/master
                 pageTitle: 'Edit Drug Information {{ drugResolve.name }}'
               }
             })

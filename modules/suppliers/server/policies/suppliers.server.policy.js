@@ -31,10 +31,10 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['chiefPharmacist'],
     allows: [{
       resources: '/api/suppliers',
-      permissions: ['get']
+      permissions: ['get', 'post']
     }, {
       resources: '/api/suppliers/:supplierId',
       permissions: ['get']

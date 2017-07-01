@@ -2,6 +2,13 @@
   <div class="page-header">
     <h1 ng-bind="vm.supplier.name"></h1>
   </div>
+  <div id="print">
+    <p>Name : {{vm.supplier.name}}</p>
+    <p>Email : {{vm.supplier.email}}</p>
+    <p>Contact No : {{vm.supplier.contactNo}}</p>
+    <p>Address : {{vm.supplier.address}}</p>
+
+  </div>
   <div class="pull-right"
        ng-show="vm.supplier.isCurrentUserOwner">
     <a class="btn btn-primary"
