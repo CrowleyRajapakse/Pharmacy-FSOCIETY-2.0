@@ -3,7 +3,6 @@
     <h1>Drug Stock</h1>
   </div>
 
-<<<<<<< HEAD
   <form class="form-inline">
     <div class="form-group">
       <label >Search</label>
@@ -13,8 +12,6 @@
   </form>
   <br>
 
-=======
->>>>>>> origin/master
   <fieldset>
     <div>
       <table class="table table-striped">
@@ -23,26 +20,14 @@
           <td><b>Type</b></td>
           <td><b>Category</b></td>
           <td><b>Quantity</b></td>
-<<<<<<< HEAD
           <!--<td><b>Send Mail</b></td>-->
         </tr>
         <tr ng-repeat="drug in vm.drugs|filter:search">
-=======
-          <td><b>Price(Rs.)</b></td>
-          <td><b>Send Mail</b></td>
-        </tr>
-        <tr ng-repeat="drug in vm.drugs">
->>>>>>> origin/master
           <td>{{drug.name}}</td>
           <td>{{drug.types}}</td>
           <td>{{drug.category}}</td>
           <td>{{drug.quantity}}</td>
-<<<<<<< HEAD
           <!--<td><button class="btn btn-primary" href="http://localhost:3000/mails/create">Place Order</button></td>-->
-=======
-          <td>{{drug.price}}</td>
-          <td><button class="btn btn-primary" ng-click="">Place Order</button></td>
->>>>>>> origin/master
 
         </tr>
       </table>

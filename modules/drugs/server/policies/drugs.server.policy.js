@@ -40,11 +40,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-<<<<<<< HEAD
     roles: ['assistantPharmacist'],
-=======
-    roles: ['guest'],
->>>>>>> origin/master
     allows: [{
       resources: '/api/drugs',
       permissions: ['get']

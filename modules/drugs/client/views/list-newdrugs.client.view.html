@@ -27,37 +27,21 @@
     No Drugs yet, why don't you <a ui-sref="drugs.addNew">Add Drug</a>
   </div>
 
-<<<<<<< HEAD
 <!--  <div class="page-header">
     <h1>{{vm.drug._id ? 'Edit Drug' : 'Drug Information'}}</h1>
   </div>-->
   <<!--div class="col-md-12">
-=======
-  <div class="page-header">
-    <h1>{{vm.drug._id ? 'Edit Drug' : 'Drug Information'}}</h1>
-  </div>
-  <div class="col-md-12">
->>>>>>> origin/master
     <form name="vm.form.addNewDrugForm" class="form-horizontal" ng-submit="vm.save(vm.form.addNewDrugForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="category"> Drug Category</label>
           <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control"  required>
-<<<<<<< HEAD
             <option value="">&#45;&#45;&#45;&#45;All&#45;&#45;&#45;&#45;</option>
             <option ng-repeat="drug in vm.drugs" value="{{drug.category}}">{{drug.category}}</option>
 &lt;!&ndash;            <option value="Narcotics">Narcotics</option>
             <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
             <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
             <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>&ndash;&gt;
-=======
-            <option value="">----All----</option>
-            <option ng-repeat="drug in vm.drugs" value="{{drug.category}}">{{drug.category}}</option>
-<!--            <option value="Narcotics">Narcotics</option>
-            <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
-            <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
-            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>-->
->>>>>>> origin/master
           </select>
         </div>
 
@@ -65,24 +49,14 @@
           <label class="control-label" for="drug_name"> Drug Name</label>
           <select name="drug_name" type="text" ng-model="vm.drug.drug_name" id="drug_name" class="form-control"  required>
             <option ng-repeat="drug in vm.drugs"  ng-if="vm.drug.category == drug.category" value="{{drug.name}}">{{drug.name}}</option>
-<<<<<<< HEAD
             &lt;!&ndash;<option value="">&#45;&#45;&#45;&#45;Select&#45;&#45;&#45;&#45;</option>
-=======
-            <!--<option value="">&#45;&#45;&#45;&#45;Select&#45;&#45;&#45;&#45;</option>
->>>>>>> origin/master
             <option value="Ampicllin">Ampicllin</option>
             <option value="Ampicllin_250mg">Ampicllin 250mg</option>
             <option value="Afrin">Afrin</option>
             <option value="Losartan">Losartan</option>
-<<<<<<< HEAD
             <option value="Panadol">Panadol</option>&ndash;&gt;
           </select>
         </div>-->
-=======
-            <option value="Panadol">Panadol</option>-->
-          </select>
-        </div>
->>>>>>> origin/master
 
 <!--        <div>
         <table class="table table-striped">

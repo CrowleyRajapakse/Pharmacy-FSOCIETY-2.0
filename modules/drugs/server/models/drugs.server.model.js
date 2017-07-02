@@ -25,10 +25,7 @@ var DrugSchema = new Schema({
   quantity: {
     type: Number,
     default: '',
-<<<<<<< HEAD
     required: 'Please fill drug quantity',
-=======
->>>>>>> origin/master
     trim: true
   },
   //tablet, syrup
@@ -80,16 +77,11 @@ var DrugSchema = new Schema({
     trim: true
   },
   dosage: {
-<<<<<<< HEAD
     type: String,
-=======
-    type: Number,
->>>>>>> origin/master
     default: '',
     trim: true
   },
   frequency: {
-<<<<<<< HEAD
     type: String,
     default: '',
     trim: true
@@ -99,17 +91,6 @@ var DrugSchema = new Schema({
     default: '',
     trim: true
   },
-=======
-    type: Number,
-    default: '',
-    trim: true
-  },
-  remarks: {
-    type: String,
-    default: '',
-    trim: true
-  },
->>>>>>> origin/master
   created: {
     type: Date,
     default: Date.now
