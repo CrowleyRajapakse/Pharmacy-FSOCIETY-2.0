@@ -32,7 +32,7 @@
           requestResolve: newRequest
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','assistantPharmacist'],
           pageTitle: 'Requests Create'
         }
       })
@@ -45,7 +45,7 @@
           requestResolve: getRequest
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','assistantPharmacist','chiefPharmacist'],
           pageTitle: 'Edit Request {{ requestResolve.name }}'
         }
       })
@@ -58,6 +58,7 @@
           requestResolve: getRequest
         },
         data: {
+          roles: ['user', 'admin','assistantPharmacist','chiefPharmacist'],
           pageTitle: 'Request {{ requestResolve.name }}'
         }
       });

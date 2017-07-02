@@ -1,6 +1,3 @@
-/**
- * Created by Isuru Jayathilaka on 05/06/2017.
- */
 'use strict';
 
 /**
@@ -11,7 +8,7 @@ var path = require('path'),
   config = require(path.resolve('./config/config'));
 
 /**
- * Prescriptions module init function.
+ * drug module init function.
  */
 
 module.exports = function (app, db) {

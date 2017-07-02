@@ -32,7 +32,7 @@
           mailResolve: newMail
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Mails Create'
         }
       })
@@ -45,7 +45,7 @@
           mailResolve: sendEmail
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Mails Send'
         }
       })
@@ -58,7 +58,7 @@
           mailResolve: getMail
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Edit Mail {{ mailResolve.name }}'
         }
       })
@@ -71,6 +71,7 @@
           mailResolve: getMail
         },
         data: {
+          roles: ['user', 'admin','chiefPharmacist'],
           pageTitle: 'Mail {{ mailResolve.name }}'
         }
       });

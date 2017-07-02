@@ -19,7 +19,8 @@ var getCred = function (serviceName, credProp) {
 module.exports = {
   port: appEnv.port,
   db: {
-    uri: cfMongoUrl,
+   // uri: cfMongoUrl,
+    uri: 'mongodb://sampathRajapakse:1qaz2wsx@Q@ds015869.mlab.com:15869/fsocietypharmacy',
     options: {
       user: '',
       pass: ''

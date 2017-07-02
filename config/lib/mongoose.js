@@ -6,7 +6,8 @@
 var config = require('../config'),
   chalk = require('chalk'),
   path = require('path'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  autoIncrement = require('mongoose-auto-increment');
 
 // Load the mongoose models
 module.exports.loadModels = function (callback) {
@@ -28,7 +29,7 @@ module.exports.connect = function (cb) {
       console.error(chalk.red('Could not connect to MongoDB!'));
       console.log(err);
     } else {
-
+      //autoIncrement.initialize(db);
       // Enabling mongoose debug mode if required
       mongoose.set('debug', config.db.debug);
 

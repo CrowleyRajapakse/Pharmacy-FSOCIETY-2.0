@@ -3,76 +3,110 @@
     <h1>{{vm.drug._id ? 'Edit Drug' : 'Add New Batch'}}</h1>
   </div>
   <div class="col-md-12">
-    <form name="vm.form.drugForm" class="form-horizontal" ng-submit="vm.save(vm.form.drugForm.$valid)" novalidate>
+    <form name="vm.form.drugForm" class="form-horizontal" ng-submit="vm.save(vm.form.drugForm.$valid, vm.form.drugForm)"
+          novalidate>
       <fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="category"> Drug Category</label>
-          <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control"  required>
+          <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control" required>
             <option value="">----All----</option>
+
             <option value="Narcotics">Narcotics</option>
-            <option value="Drugs_used_in_treatment_of_injection">Drugs used in treatment of injection</option>
-            <option value="Drugs_used_in_treatment_of_Cardiovascular_system">Drugs used in treatment of Cardiovascular system</option>
-            <option value="Drugs_acting_on_the_central_nervous_system">Drugs acting on the central nervous system</option>
+            <option value="Drugs_used_in_the_treatment_of_injection">Drugs used in the treatment of injections</option>
+            <option value="Drugs_used_in_the_treatment_of_Cardiovascular_system">Drugs used in the treatment of
+              Cardiovascular system
+            </option>
+            <option value="Drugs_used_in_the_central_nervous_system">Drugs used in the central nervous system</option>
+            <option value="Drugs_affecting_nutrition_&_blood">Drugs affecting nutrition & blood</option>
+            <option value="Drugs_used_in_the_treatment_of_diseases_of_the_respiratory_system">Drugs used in the
+              treatment of diseases of the respiratory system
+            </option>
+            <option value="Immunological_product_and_vaccines">Immunological product and vaccines</option>
+            <option value="Drugs_used_in_the_treatment_of_the_endocrine_system">Drugs used in the treatment of the
+              endocrine system
+            </option>
+            <option value="Drugs_used_in_the_central_nervous_system">Drugs used in the central nervous system</option>
+            <option value="Drugs_acting_on_eye">Drugs acting on eye</option>
+
+
           </select>
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="name"> Add Received Drug</label>
-          <select name="name" type="text" ng-model="vm.drug.name" id="name" class="form-control"  required>
+          <select name="name" type="text" ng-model="vm.drug.name" id="name" class="form-control" required>
+            <option value="">-----Select drug-----</option>
+            <option ng-bind="vm.drug.name" value="{{vm.drug.name}}">{{vm.drug.name}}</option>
+            <!--<option  value="Ampicllin">Ampicllin</option>-->
             <option value="Ampicllin">Ampicllin</option>
             <option value="Ampicllin_250mg">Ampicllin 250mg</option>
             <option value="Afrin">Afrin</option>
             <option value="Losartan">Losartan</option>
-            <option value="Panadol">Panadol</option>
+            <option value="Captopril">Captopril</option>
+            <option value="Enalapril">Enalapril</option>
+            <option value="Digitazem tablet 30mg">Digitazem tablet 30mg</option>
+            <option value="Losartan">Losartan</option>
+            <option value="Methylodopa">Methylodopa</option>
+
+            <option value="Digitazem tablet 30mg">Digitazem tablet 30mg</option>
+            <option value="Losartan">Losartan</option>
+            <option value="Methylodopa">Methylodopa</option>
+
           </select>
+
+
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="batchNo">Batch Number:</label>
-          <input name="batchNo" type="text" ng-model="vm.drug.batchNo" id="batchNo" class="form-control" placeholder="Batch Number" required>
+          <input name="batchNo" type="number" ng-model="vm.drug.batchNo" id="batchNo" class="form-control"
+                 placeholder="Batch Number" required>
           <div ng-messages="vm.form.drugForm.batchNo.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Drug name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="types"> Type:</label>
-          <select name="types" type="text" ng-model="vm.drug.types" id="types" class="form-control"  required>
+          <select name="types" type="text" ng-model="vm.drug.types" id="types" class="form-control" required>
             <option value="">----Please select a type----</option>
-            <option value="Cartoons">Cartoons</option>
-            <option value="Bottles">Bottles</option>
+            <option value="AMP">AMP</option>
+            <option value="Tab">Tablet</option>
+            <option value="Cap">Capsule</option>
+            <option value="Spray">Spray</option>
+            <option value="Liquid">Liquid</option>
+            <option value="Drop">Drop</option>
 
           </select>
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="content"> Content:</label>
-          <select name="content" type="text" ng-model="vm.drug.content" id="content" class="form-control"  required>
+          <select name="content" type="text" ng-model="vm.drug.content" id="content" class="form-control" required>
             <option value="">----Select----</option>
             <option value="Cartoons">Tablet</option>
             <option value="Bottles">Liquid</option>
-
           </select>
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="quantity">Quantity</label>
-          <textarea name="quantity" type="text" ng-model="vm.drug.quantity" id="quantity" class="form-control" placeholder="Quantity" required></textarea>
-          <div ng-messages="vm.form.drugForm.quantity.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Quantity is required.</p>
-          </div>
+          <input name="quantity" type="number" ng-model="vm.drug.quantity" id="quantity" class="form-control"
+                 placeholder="Quantity" required> </input>
         </div>
         <div class="form-group" show-errors>
 
           <label class="control-label" for="manufactureDate">Manufacture Date:</label>
-         <!-- <textarea name="tags" type="text" ng-model="vm.drug.tags" id="tags" class="form-control" placeholder="Tags" required></textarea>-->
-          <input type="date" id="manufactureDate" name="manufactureDate" ng-model="vm.drug.manufactureDate" placeholder="yyyy-MM-dd" min="2007-01-01" max="2070-12-31" required />
+
+          <input type="datetime" id="manufactureDate" name="manufactureDate" ng-model="vm.drug.manufactureDate"
+                 placeholder="yyyy-MM-dd" min="2007-01-01" max="2070-12-31" required/>
 
         </div>
         <div class="form-group" show-errors>
 
           <label class="control-label" for="expireDate">Expiry Date:</label>
-          <!-- <textarea name="tags" type="text" ng-model="vm.drug.tags" id="tags" class="form-control" placeholder="Tags" required></textarea>-->
-          <input type="date" id="expireDate" name="expireDate" ng-model="vm.drug.expireDate" placeholder="yyyy-MM-dd" min="2007-01-01" max="2070-12-31" required />
+
+          <input type="datetime" id="expireDate" name="expireDate" ng-model="vm.drug.expireDate"
+                 placeholder="yyyy-MM-dd" min="2007-01-01" max="2070-12-31" required/>
 
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.drug._id ? 'Update' : 'Add Batch'}}</button>
+          <button type="submit" class="btn btn-primary">{{vm.drug._id ? 'Update' : 'Add Batch'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>

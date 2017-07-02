@@ -2,8 +2,22 @@
   <div class="page-header">
     <h1>Prescriptions</h1>
   </div>
+  <!--
+  <div class="col-md-4" >
+    <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" />
+  </div>
+  -->
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label >Search</label>
+        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+      </div>
+    </form>
+  <br/>
+
   <div class="list-group">
-    <a ng-repeat="prescription in vm.prescriptions"
+    <a ng-repeat="prescription in vm.prescriptions |orderBy : patient| filter : search"
        ui-sref="prescriptions.view({ prescriptionId: prescription._id })"
        class="list-group-item">
       <small class="list-group-item-text">
@@ -21,4 +35,27 @@
   <div class="alert alert-warning text-center" ng-if="vm.prescriptions.$resolved && !vm.prescriptions.length">
     No Prescriptions yet, why don't you <a ui-sref="prescriptions.create">create one</a>?
   </div>
+<!--  <div class="page-header">
+    <h1>Drug Stock</h1>
+  </div>
+
+  <fieldset>
+    <div>
+      <table class="table table-striped">
+        <tr >
+          <td><b>Name</b></td>
+          <td><b>Type</b></td>
+          <td><b>Category</b></td>
+          <td><b>Quantity</b></td>
+        </tr>
+        <tr ng-repeat="drug in vm.drugs">
+          <td>{{drug.name}}</td>
+          <td>{{drug.types}}</td>
+          <td>{{drug.category}}</td>
+          <td>{{drug.quantity}}</td>
+        </tr>
+      </table>
+
+    </div>
+  </fieldset>-->
 </section>

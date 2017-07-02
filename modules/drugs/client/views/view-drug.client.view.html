@@ -1,50 +1,46 @@
 <section>
   <div class="page-header">
-    <h1><span ng-bind="vm.drug.names"></span> <small>Posted in <span ng-bind="vm.drug.category"></span></small></h1>
-    <!--<div ng-bind="vm.drug.body"></div>
-    <br>
-    <p>Tags : <strong>{{vm.drug.tags}}</strong></p>
-  </div>-->
-    <div id="print">
-      <!--<p>Frequency : {{vm.drug.idd}}</p>-->
-      <!--<p>Dosage : {{vm.drug.quantity}}</p>-->
-      <!--<p>Period : {{vm.drug.types}}</p>
-      <p>Quantity : {{vm.drug.category}}</p>
-      <p>Tags : <strong>{{vm.drug.batchNo}}</strong></p>-->
-      <!--<p id="drugsD">Drug Quantity: {{drug.quantity | limitTo:100}}
-        Drug Name:{{drug.name}} Drug Type:{{drug.types}} Drug Category:{{drug.category}}</p>-->
+    <h1><span ng-bind="vm.drug.names"></span>
+      <small>Posted in <span ng-bind="vm.drug.category"></span></small>
+    </h1>
 
-      <p id="drugsD">Drug Quantity: {{vm.drug.quantity | limitTo:100}}
-        Drug Name:{{vm.drug.name}} Drug Type:{{vm.drug.types}} Drug Category:{{vm.drug.category}}</p>
-      <p> Batch No:{{vm.drug.batchNo}}Manufacture Date:{{vm.drug.manufactureDate}}
-        Expire Date:{{vm.drug.expireDate}}</p>
+    <div id="print" class="list-group">
+      <ul class="b">
+        <li>Drug Quantity: {{vm.drug.quantity | limitTo:100}}</li>
+        <li>Drug Name:{{vm.drug.name}}</li>
+        <li>Drug Type:{{vm.drug.types}}</li>
+        <li>Drug Category:{{vm.drug.category}}</li>
+        <li>Batch No:{{vm.drug.batchNo}}</li>
+        <li>Manufacture Date:{{vm.drug.manufactureDate}}</li>
+        <li>Expire Date:{{vm.drug.expireDate}}</li>
+      </ul>
     </div>
 
-  <div class="pull-right"
-       ng-show="vm.drug.isCurrentUserOwner">
-    <a class="btn btn-primary" ng-click="vm.printDrug('print')">
-      <i class="glyphicon glyphicon-ok-sign"></i>
-    </a>
+    <div class="pull-right"
+         ng-show="vm.drug.isCurrentUserOwner">
+      <a class="btn btn-primary" ng-click="vm.printDrug('print')">
+        <i class="glyphicon glyphicon-ok-sign"></i>
+      </a>
 
 
-    <a class="btn btn-primary"
-       ui-sref="drugs.edit({ drugId: vm.drug._id })">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
-     <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <small>
-    <em class="text-muted">
-      Posted on
-      <span ng-bind="vm.drug.created | date:'mediumDate'"></span>
-      by
-      <span ng-if="vm.drug.user"
-            ng-bind="vm.drug.user.displayName"></span>
-      <span ng-if="!vm.drug.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="vm.drug.content"></p>
+      <a class="btn btn-primary"
+         ui-sref="drugs.edit({ drugId: vm.drug._id })">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-primary" ng-click="vm.remove()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+    <small>
+      <em class="text-muted">
+        Posted on
+        <span ng-bind="vm.drug.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="vm.drug.user"
+              ng-bind="vm.drug.user.displayName"></span>
+        <span ng-if="!vm.drug.user">Deleted User</span>
+      </em>
+    </small>
+
   </div>
 </section>

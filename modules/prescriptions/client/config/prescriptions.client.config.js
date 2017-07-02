@@ -27,7 +27,7 @@
     menuService.addSubMenuItem('topbar', 'prescriptions', {
       title: 'Create Prescription',
       state: 'prescriptions.create',
-      roles: ['user']
+      roles: ['user','doctor']
     });
 
       /*

@@ -35,6 +35,10 @@ gulp.task('env:prod', function () {
   process.env.NODE_ENV = 'production';
 });
 
+gulp.task('env:dev', function () {
+    process.env.MONGOLAB_URI = 'mongodb://sampathRajapakse:1qaz2wsx@Q@ds015869.mlab.com:15869/fsocietypharmacy';
+});
+
 // Nodemon task
 gulp.task('nodemon', function () {
   return plugins.nodemon({

@@ -1,0 +1,146 @@
+<section xmlns="http://www.w3.org/1999/html">
+  <div class="page-header">
+    <h1>{{vm.drug._id ? 'Edit Drug Information' : 'Add New Drug'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.addNewDrugForm" class="form-horizontal" ng-submit="vm.save(vm.form.addNewDrugForm.$valid, vm.form.addNewDrugForm)"
+          novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="category">Drug Category</label>
+          <select name="category" type="text" ng-model="vm.drug.category" id="category" class="form-control" required>
+            <option value="" disabled="disabled" selected="selected">Please select a category</option>
+            <option value="Narcotics">Narcotics</option>
+            <option value="Drugs_used_in_the_treatment_of_injection">Drugs used in the treatment of injections</option>
+            <option value="Drugs_used_in_the_treatment_of_Cardiovascular_system">Drugs used in the treatment of Cardiovascular system</option>
+            <option value="Drugs_used_in_the_central_nervous_system">Drugs used in the central nervous system</option>
+            <option value="Drugs_affecting_nutrition_&_blood">Drugs affecting nutrition & blood</option>
+            <option value="Drugs_used_in_the_treatment_of_diseases_of_the_respiratory_system">Drugs used in the treatment of diseases of the respiratory system</option>
+            <option value="Immunological_product_and_vaccines">Immunological product and vaccines</option>
+            <option value="Drugs_used_in_the_treatment_of_the_endocrine_system">Drugs used in the treatment of the endocrine system</option>
+            <option value="Drugs_used_in_the_central_nervous_system">Drugs used in the central nervous system</option>
+            <option value="Drugs_acting_on_eye">Drugs acting on eye</option>
+          </select>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Drug Name</label>
+          <input name="name" type="text" ng-model="vm.drug.name" id="name" class="form-control" placeholder="Drug Name" required>
+          <div ng-messages="vm.form.addNewDrugForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Drug Name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="types">Type</label>
+          <select name="types" type="text" ng-model="vm.drug.types" id="types" class="form-control" required>
+            <option value="" disabled="disabled" selected="selected">Please select a type</option>
+            <option value="AMP">AMP</option>
+            <option value="Tab">Tablet</option>
+            <option value="Cap">Capsule</option>
+            <option value="Spray">Spray</option>
+            <option value="Liquid">Liquid</option>
+            <option value="Drop">Drop</option>
+          </select>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="quantity">Quantity</label>
+          <input name="quantity" type="number" ng-model="vm.drug.quantity" id="quantity" class="form-control"
+                 placeholder="Quantity" required>
+          <div ng-messages="vm.form.addNewDrugForm.quantity.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="price">Price</label>
+          <input name="price" type="number" ng-model="vm.drug.price" id="price" class="form-control"
+                    placeholder="Price" required>
+          <div ng-messages="vm.form.addNewDrugForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="remarks">Remarks</label>
+          <input name="remarks" type="text" ng-model="vm.drug.remarks" id="remarks" class="form-control"
+                 placeholder="Remarks" required>
+          <div ng-messages="vm.form.addNewDrugForm.remarks.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Remark is required.</p>
+          </div>
+        </div>
+
+          <div class="form-group" show-errors>
+            <label class="control-label" for="reorderLevel">Reorder Level</label>
+            <input name="reorderLevel" type="number" ng-model="vm.drug.reorderLevel" id="reorderLevel"
+                   class="form-control" placeholder="Reorder Level" required>
+            <div ng-messages="vm.form.addNewDrugForm.reorderLevel.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Reorder Level is required.</p>
+            </div>
+          </div>
+
+          <div class="form-group" show-errors>
+            <label class="control-label" for="dangerLevel">Danger Level</label>
+            <input name="dangerLevel" type="number" ng-model="vm.drug.dangerLevel" id="dangerLevel" class="form-control"
+                   placeholder="Danger Level" required>
+            <div ng-messages="vm.form.addNewDrugForm.dangerLevel.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Danger Level is required.</p>
+            </div>
+          </div>
+
+          <!--<div class="form-group" show-errors>
+            <label class="control-label" for="dosage">Dosage</label>
+            <input name="dosage" type="text" ng-model="vm.drug.dosage" id="dosage" class="form-control"
+                   placeholder="Dosage" required>
+            <div ng-messages="vm.form.addNewDrugForm.dosage.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Dosage is required.</p>
+            </div>
+          </div>-->
+        <div class="form-group" show-errors>
+          <label class="control-label" for="dosage">Dosage</label>
+          <select name="dosage" type="text" ng-model="vm.drug.dosage" id="dosage" class="form-control" required>
+            <option value="" disabled="disabled" selected="selected">Please select a Dosage</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="1\2">1\2</option>
+            <option value="1ml">1 ml</option>
+            <option value="1.5ml">1.5 ml</option>
+            <option value="2.5ml">2.5 ml</option>
+            <option value="4ml">4 ml</option>
+            <option value="5ml">5 ml</option>
+            <option value="7.5ml">7.5 ml</option>
+            <option value="10ml">10 ml</option>
+          </select>
+        </div>
+
+          <!--<div class="form-group" show-errors>
+            <label class="control-label" for="frequency">Frequency</label>
+            <input name="frequency" type="text" ng-model="vm.drug.frequency" id="frequency" class="form-control"
+                   placeholder="Frequency" required>
+            <div ng-messages="vm.form.addNewDrugForm.frequency.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Frequency is required.</p>
+            </div>
+          </div>-->
+        <div class="form-group" show-errors>
+          <label class="control-label" for="frequency">Frequency</label>
+          <select name="frequency" type="text" ng-model="vm.drug.frequency" id="frequency" class="form-control" required>
+            <option value="" disabled="disabled" selected="selected">Please select a Frequency</option>
+            <option value="1Time">1 Time a day</option>
+            <option value="2Times">2 Times a day</option>
+            <option value="3Times">3 Times a day</option>
+            <option value="5Times">5 Times a day</option>
+            <option value="6H">6 H</option>
+            <option value="8H">8 H</option>
+          </select>
+        </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">{{vm.drug._id ? 'Update' : 'Add New Drug'}}</button>
+          </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

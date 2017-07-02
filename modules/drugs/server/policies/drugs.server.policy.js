@@ -31,7 +31,16 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['chiefPharmacist'],
+    allows: [{
+      resources: '/api/drugs',
+      permissions: ['get', 'post']
+    }, {
+      resources: '/api/drugs/:drugId',
+      permissions: ['get']
+    }]
+  }, {
+    roles: ['assistantPharmacist'],
     allows: [{
       resources: '/api/drugs',
       permissions: ['get']

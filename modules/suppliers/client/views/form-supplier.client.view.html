@@ -1,0 +1,49 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.supplier._id ? 'Edit Supplier' : 'New Supplier'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.supplierForm" class="form-horizontal" ng-submit="vm.save(vm.form.supplierForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.supplier.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.supplierForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Supplier name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="email">Email</label>
+          <input name="email" type="text" ng-model="vm.supplier.email" id="email" class="form-control" placeholder="Email" required>
+          <div ng-messages="vm.form.supplierForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Supplier Email is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="contactNo">Contact No.</label>
+          <input name="contactNo" type="text" ng-model="vm.supplier.contactNo" id="contactNo" class="form-control" placeholder="Contact No." required>
+          <div ng-messages="vm.form.supplierForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Supplier Email is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="address">Address</label>
+          <input name="address" type="text" ng-model="vm.supplier.address" id="address" class="form-control" placeholder="Address" required>
+          <div ng-messages="vm.form.supplierForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Supplier Address is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.supplier._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

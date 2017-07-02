@@ -25,7 +25,7 @@ var DrugSchema = new Schema({
   quantity: {
     type: Number,
     default: '',
-    required: 'Please enter drug quantity',
+    required: 'Please fill drug quantity',
     trim: true
   },
   //tablet, syrup
@@ -41,54 +41,56 @@ var DrugSchema = new Schema({
     required: 'Please fill drug category',
     trim: true
   },
- /* price: {
+  price: {
     type: Number,
     default: '',
-    required: 'Please fill drug price',
     trim: true
-  },*/
+  },
   batchNo: {
-    type: String,
+    type: Number,
     default: '',
-    required: 'Please enter batch number',
     trim: true
   },
   content: {
     type: String,
     default: '',
-    required: 'Please fill drug category',
     trim: true
   },
   manufactureDate: {
     type: Date,
     default: '',
-    required: 'Please enter manufacture date',
     trim: true
   },
   expireDate: {
     type: Date,
     default: '',
-    required: 'Please enter expiry date',
     trim: true
   },
-  /*reorderLevel: {
+  reorderLevel: {
     type: Number,
     default: '',
-    required: 'Please enter reorder level',
     trim: true
   },
   dangerLevel: {
     type: Number,
     default: '',
-    required: 'Please enter danger level',
     trim: true
-  },*/
-/*  remarks: {
-    type: Number,
+  },
+  dosage: {
+    type: String,
     default: '',
-    required: 'Please enter remarks',
     trim: true
-  },*/
+  },
+  frequency: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  remarks: {
+    type: String,
+    default: '',
+    trim: true
+  },
   created: {
     type: Date,
     default: Date.now
