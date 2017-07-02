@@ -15,21 +15,13 @@
       title: 'Drugs',
       state: 'drugs',
       type: 'dropdown',
-<<<<<<< HEAD
       roles: ['admin','user','chiefPharmacist','assistantPharmacist']
-=======
-      roles: ['admin','user','chiefPharmacist']
->>>>>>> origin/master
     });
 
     menuService.addSubMenuItem('topbar', 'drugs', {
       title: 'Drug Stock',
       state: 'drugs.stock',
-<<<<<<< HEAD
       roles: ['user','chiefPharmacist','assistantPharmacist']
-=======
-      roles: ['user','chiefPharmacist']
->>>>>>> origin/master
     });
 
     menuService.addSubMenuItem('topbar', 'drugs', {
